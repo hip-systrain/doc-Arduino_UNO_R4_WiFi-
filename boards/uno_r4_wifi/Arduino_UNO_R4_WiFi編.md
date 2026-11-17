@@ -160,16 +160,98 @@ void ButtonTask(void *pvParameters){
 LEDが一定の間隔で点滅しながら、ボタンを押した回数がシリアルモニタに表示されることを確認する。
 
 ### 5.3 題材6:タスク間通信
+この節では、タスク間通信を実装する手順を記述する。
 
 #### 作るもの(ボードの動き)
+ボタンの押下により、LEDの点滅間隔を変更する。
 
 #### 配線(図か写真)
+[4.2 題材2:ボタン入力]の配線の写真を参照する。
 
 #### プログラム(コメント付き)
+```
+#include <Arduino_FreeRTOS.h>   // FreeRTOSを使うために必要
+
+QueueHandle_t buttonQueue;
+
+void ButtonTask(void *pvParameters);
+void LedTask(void *pvParameters);
+
+int outPin = 13;
+int inPin = 2;
+long baud = 9600;
+
+void setup(){
+  Serial.begin(baud);
+  pinMode(outPin, OUTPUT);
+  pinMode(inPin, INPUT_PULLUP);
+
+  buttonQueue = xQueueCreate(1, sizeof(int));
+
+  if (buttonQueue == NULL) {
+    // Queueの作成に失敗
+    while (1) {
+    }
+  }
+
+  xTaskCreate(
+    ButtonTask,
+    "ButtonTask",
+    128,
+    NULL,
+    1,
+    NULL
+  );
+
+  xTaskCreate(
+    LedTask,
+    "LedTask",
+    128,
+    NULL,
+    2,
+    NULL
+  );
+
+  vTaskStartScheduler();
+}
+
+void loop(){
+  // 使用しない
+}
+
+void ButtonTask(void *pvParameters){
+  int val = 0;
+
+  while(1){
+    val = digitalRead(inPin);
+    xQueueSend(buttonQueue, &val, 0);
+  }
+}
+
+void LedTask(void *pvParameters){
+  int state = 0;
+  while(1){
+    xQueueReceive(buttonQueue, &state, 0);
+    if(state == HIGH){
+      digitalWrite(outPin, HIGH);
+      vTaskDelay(pdMS_TO_TICKS(500));
+      digitalWrite(outPin, LOW);
+      vTaskDelay(pdMS_TO_TICKS(500));
+    }else{
+      digitalWrite(outPin, HIGH);
+      vTaskDelay(pdMS_TO_TICKS(100));
+      digitalWrite(outPin, LOW);
+      vTaskDelay(pdMS_TO_TICKS(100));
+    }
+  }
+}
+```
 
 #### ビルドと書込み
+[4.1 題材1:LED点滅]のビルドと書込みの手順を参照する。
 
 #### 動作確認
+LEDが一定の間隔で点滅しながら、ボタンを押した回数がシリアルモニタに表示されることを確認する。
 
 ## 6. デバッグ
 
