@@ -44,7 +44,55 @@
 ## 1. 開発環境構築
 
 ### 1.1 ツールのインストール
+
+#### 1.1.1 Arduino IDE
+1. Arduino IDEのダウンロードページ(https://www.arduino.cc/en/software/)へアクセスする<br>
+
+1. 「Windows Win 10 and newer, 64bits」を選択する<br>
+<img src="./images/1-1_Tool_Install_01.png" width=60%>
+
+1. 「DOWNLOAD」を押下する<br>
+<img src="./images/1-1_Tool_Install_02.png" width=60%>
+
+1. ダウンロードしたインストーラを実行する<br>
+<img src="./images/1-1_Tool_Install_03.png" width=60%>
+
+1. 「同意する」を押下する<br>
+<img src="./images/1-1_Tool_Install_04.png" width=60%>
+
+1. 「次へ」を押下する<br>
+<img src="./images/1-1_Tool_Install_05.png" width=60%>
+
+1. 「インストール」を押下する<br>
+<img src="./images/1-1_Tool_Install_06.png" width=60%>
+
+1. インストールが完了するまで暫く待つ<br>
+<img src="./images/1-1_Tool_Install_07.png" width=60%>
+
+1. 「完了」を押下する<br>
+<img src="./images/1-1_Tool_Install_08.png" width=60%>
+
+1. Arduino IDEの初回起動時はWindowsセキュリティが表示されるので「許可」を押下する<br>
+<img src="./images/1-2_Driver_Install_01.png" width=60%>
+
 ### 1.2 ドライバのインストール
+Arduino IDEの初回起動後、以下のデバイスドライバのインストールが実行されるので、手順に従ってインストールをする
+
+1. 「インストール」を押下して Adafruit Industries LLCポート(発行元:) をインストールする<br>
+<img src="./images/1-2_Driver_Install_02.png" width=60%>
+
+1. 「インストール」を押下して Arduino UDB Driver(発行元:) をインストールする<br>
+<img src="./images/1-2_Driver_Install_03.png" width=60%>
+
+1. 「インストール」を押下して Arduino UDB Driver(発行元:) をインストールする<br>
+<img src="./images/1-2_Driver_Install_04.png" width=60%>
+
+1. 「インストール」を押下して Genuino USB Driver(発行元:) をインストールする<br>
+<img src="./images/1-2_Driver_Install_05.png" width=60%>
+
+#### 1.1.2 Tera Term
+1. Arduino IDE ダウンロードページ(https://www.arduino.cc/en/software/)へアクセスする<br>
+
 ### 1.3 インストールできたことの確認
 
 ## 2. シリアルターミナルの使い方
