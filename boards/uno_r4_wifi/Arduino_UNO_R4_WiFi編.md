@@ -68,10 +68,108 @@
 ### 4.4 題材4:タイマ割込み
 
 ## 5. コーディング・ビルド・書込み(FreeRTOS)
+この章では、FreeRTOSの導入方法、およびFreeRTOSを用いた題材について記述する。
 
 ### 5.1 FreeRTOSの導入・設定
+UNO R4 WiFiにはFreeRTOSがすでに入っているため、追加でインストールは不要である。
+
 ### 5.2 題材5:複数タスク
+この節では、複数タスクを実装する手順を記述する。
+
+#### 作るもの(ボードの動き)
+LEDを一定の間隔で点滅させながら、ボタンを押した回数をカウントする。<br>
+(4章で作成した、題材1:LED点滅、題材3:UART出力のプログラムを参照)
+
+#### 配線(図か写真)
+[4.2 題材2:ボタン入力]の配線の写真を参照する。
+
+#### プログラム(コメント付き)
+```
+#include <Arduino_FreeRTOS.h>
+
+void LedTask(void *pvParameters);
+void ButtonTask(void *pvParameters);
+
+int outPin = 13;
+int inPin = 2;
+long baud = 9600;
+
+void setup(){
+  Serial.begin(baud);
+  pinMode(outPin, OUTPUT);
+  pinMode(inPin, INPUT_PULLUP);
+
+  xTaskCreate(
+    LedTask,
+    "LedTask",
+    128,
+    NULL,
+    2,
+    NULL
+  );
+
+  xTaskCreate(
+    ButtonTask,
+    "ButtonTask",
+    128,
+    NULL,
+    1,
+    NULL
+  );
+
+  vTaskStartScheduler();
+}
+
+void loop(){
+  // 使用しない
+}
+
+void LedTask(void *pvParameters){
+  while(1){
+    digitalWrite(outPin, HIGH);
+    vTaskDelay(pdMS_TO_TICKS(100));
+    digitalWrite(outPin, LOW);
+    vTaskDelay(pdMS_TO_TICKS(400));
+  }
+}
+
+void ButtonTask(void *pvParameters){
+  int val = 0;
+  int count = 0;
+  int state = 0;
+
+  while(1){
+    val = digitalRead(inPin);
+    if(val == LOW){
+      if(val != state){
+        count = count + 1;
+        Serial.print(count);
+        Serial.println("回 ");
+      }
+    }
+    
+    state = val;
+  }
+}
+```
+
+#### ビルドと書込み
+[4.1 題材1:LED点滅]のビルドと書込みの手順を参照する。
+
+#### 動作確認
+LEDが一定の間隔で点滅しながら、ボタンを押した回数がシリアルモニタに表示されることを確認する。
+
 ### 5.3 題材6:タスク間通信
+
+#### 作るもの(ボードの動き)
+
+#### 配線(図か写真)
+
+#### プログラム(コメント付き)
+
+#### ビルドと書込み
+
+#### 動作確認
 
 ## 6. デバッグ
 
