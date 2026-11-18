@@ -180,19 +180,13 @@ void LedTask(void *pvParameters);
 int outPin = 13;
 int inPin = 2;
 long baud = 9600;
+int queue_size = 1;
 
 void setup(){
-  Serial.begin(baud);
-  pinMode(outPin, OUTPUT);
-  pinMode(inPin, INPUT_PULLUP);
-
-  buttonQueue = xQueueCreate(1, sizeof(int));
-
-  if (buttonQueue == NULL) {
-    // Queueの作成に失敗
-    while (1) {
-    }
-  }
+  Serial.begin(baud);   // 
+  pinMode(outPin, OUTPUT);    // 
+  pinMode(inPin, INPUT_PULLUP);   // 
+  buttonQueue = xQueueCreate(queue_size, sizeof(int));    // 
 
   xTaskCreate(
     ButtonTask,
@@ -229,19 +223,28 @@ void ButtonTask(void *pvParameters){
 }
 
 void LedTask(void *pvParameters){
-  int state = 0;
+  int button_state = 0;
+  int loop_count = 0;
   while(1){
-    xQueueReceive(buttonQueue, &state, 0);
-    if(state == HIGH){
-      digitalWrite(outPin, HIGH);
-      vTaskDelay(pdMS_TO_TICKS(500));
-      digitalWrite(outPin, LOW);
-      vTaskDelay(pdMS_TO_TICKS(500));
+    xQueueReceive(buttonQueue, &button_state, portMAX_DELAY);
+    if(loop_count == 0){
+      if(button_state == HIGH){
+        digitalWrite(outPin, HIGH);
+        vTaskDelay(pdMS_TO_TICKS(500));
+      }else{
+        digitalWrite(outPin, HIGH);
+        vTaskDelay(pdMS_TO_TICKS(100));
+      }
+      loop_count = 1;
     }else{
-      digitalWrite(outPin, HIGH);
-      vTaskDelay(pdMS_TO_TICKS(100));
-      digitalWrite(outPin, LOW);
-      vTaskDelay(pdMS_TO_TICKS(100));
+      if(button_state == HIGH){
+        digitalWrite(outPin, LOW);
+        vTaskDelay(pdMS_TO_TICKS(500));
+      }else{
+        digitalWrite(outPin, LOW);
+        vTaskDelay(pdMS_TO_TICKS(100));
+      }
+      loop_count = 0;
     }
   }
 }
