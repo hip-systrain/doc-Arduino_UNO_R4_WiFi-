@@ -43,57 +43,158 @@
 
 ## 1. 開発環境構築
 
-### 1.1 ツールのインストール
+### 1.1 Arduino IDEのインストール
+Arduino IDEをインストールする手順を次に記載する。<br>
 
-#### 1.1.1 Arduino IDE
 1. Arduino IDEのダウンロードページ(https://www.arduino.cc/en/software/)へアクセスする<br>
 
 1. 「Windows Win 10 and newer, 64bits」を選択する<br>
-<img src="./images/1-1_Tool_Install_01.png" width=60%>
+<img src="./images/1-1_Tool_Install_01.png" width=40%>
 
 1. 「DOWNLOAD」を押下する<br>
-<img src="./images/1-1_Tool_Install_02.png" width=60%>
+<img src="./images/1-1_Tool_Install_02.png" width=40%>
 
 1. ダウンロードしたインストーラを実行する<br>
 <img src="./images/1-1_Tool_Install_03.png" width=60%>
 
-1. 「同意する」を押下する<br>
-<img src="./images/1-1_Tool_Install_04.png" width=60%>
+1. ライセンス条項を確認し、「同意する」を押下する<br>
+<img src="./images/1-1_Tool_Install_04.png" width=40%>
 
-1. 「次へ」を押下する<br>
-<img src="./images/1-1_Tool_Install_05.png" width=60%>
+1. インストールオプションの選択は変更せず、「次へ」を押下する<br>
+<img src="./images/1-1_Tool_Install_05.png" width=40%>
 
-1. 「インストール」を押下する<br>
-<img src="./images/1-1_Tool_Install_06.png" width=60%>
-
-1. インストールが完了するまで暫く待つ<br>
-<img src="./images/1-1_Tool_Install_07.png" width=60%>
+1. インストール先フォルダは変更せず、「インストール」を押下する<br>
+<img src="./images/1-1_Tool_Install_06.png" width=40%>
 
 1. 「完了」を押下する<br>
-<img src="./images/1-1_Tool_Install_08.png" width=60%>
+<img src="./images/1-1_Tool_Install_07.png" width=40%>
 
-1. Arduino IDEの初回起動時はWindowsセキュリティのポップアップが表示されるので「許可」を押下する<br>
-<img src="./images/1-2_Driver_Install_01.png" width=60%>
+### 1.2 デバイスドライバのインストール
+デバイスドライバをインストールする手順を次に記載する。<br>
 
-### 1.2 ドライバのインストール
-Arduino IDEの初回起動後、次のデバイスドライバのインストールが実行された場合、手順に従ってインストールをする
+1. Arduino IDEを起動する<br>
 
-1. 「インストール」を押下して Adafruit Industries LLCポート(発行元:) をインストールする<br>
-<img src="./images/1-2_Driver_Install_02.png" width=60%>
+1. Windowsセキュリティのポップアップが表示された場合、「許可」を押下する<br>
+<img src="./images/1-2_Driver_Install_01.png" width=30%>
 
-1. 「インストール」を押下して Arduino UDB Driver(発行元:) をインストールする<br>
-<img src="./images/1-2_Driver_Install_03.png" width=60%>
+1. Adafruit Industries LLCポート(発行元:Adafruit Industries)のインストールが表示された場合、「インストール」を押下してインストールする<br>
+<img src="./images/1-2_Driver_Install_02.png" width=40%>
 
-1. 「インストール」を押下して Arduino UDB Driver(発行元:) をインストールする<br>
-<img src="./images/1-2_Driver_Install_04.png" width=60%>
+1. Arduino USB Driver(発行元:Arduino srl)のインストールが表示された場合、「インストール」を押下してインストールする<br>
+<img src="./images/1-2_Driver_Install_03.png" width=40%>
 
-1. 「インストール」を押下して Genuino USB Driver(発行元:) をインストールする<br>
-<img src="./images/1-2_Driver_Install_05.png" width=60%>
+1. Arduino USB Driver(発行元:Arduino SA)のインストールが表示された場合、「インストール」を押下してインストールする<br>
+<img src="./images/1-2_Driver_Install_04.png" width=40%>
 
-#### 1.1.2 Tera Term
-1. Arduino IDE ダウンロードページ(https://www.arduino.cc/en/software/)へアクセスする<br>
+1. Genuino USB Driver(発行元:Arduino LLC)のインストールが表示された場合、「インストール」を押下してインストールする<br>
+<img src="./images/1-2_Driver_Install_05.png" width=40%>
 
-### 1.3 インストールできたことの確認
+1. ボードのアイコンを押下し、ボードマネージャを開く<br>
+<img src="./images/1-2_Driver_Install_06.png" width=60%>
+<img src="./images/1-2_Driver_Install_07.png" width=60%>
+
+1. 「検索をフィルタ…」の入力欄に `"Arduino UNO R4 Boards"` と入力する<br>
+<img src="./images/1-2_Driver_Install_08.png" width=60%>
+
+1. フィルタで表示された「Arduino UNO R4 Boards」を「インストール」を押下してインストールする<br>
+インストールが始まると右下にインストール状況が表示される
+<img src="./images/1-2_Driver_Install_09.png" width=60%>
+
+1. フィルタで表示された「Arduino UNO R4 Boards」を「インストール」を押下してインストールする<br>
+インストールが始まると右下にインストール状況が表示される
+<img src="./images/1-2_Driver_Install_09.png" width=60%>
+
+1. インストール中にArduinoユニバーサルシリアルバスデバイス(発行元:Arduino SA)のインストールが表示されるので、「インストール」を押下してインストールする<br>
+<img src="./images/1-2_Driver_Install_10.png" width=40%>
+
+1. インストールが完了すると　`"Platform arduino:renesas_uno@1.6.0 installed"` と出力される<br>
+<img src="./images/1-2_Driver_Install_11.png" width=60%>
+
+### 1.3 Tera Termのインストール
+Tera Termをインストールする手順を次に記載する。<br>
+
+1. Tera termのダウンロードページ(https://github.com/TeraTermProject/teraterm/releases/)へアクセスする<br>
+
+1. 「teraterm-5.7.1-x64.exe」を押下してインストーラをダウンロードする<br>
+<img src="./images/1-3_Terminal_Install_01.png" width=50%>
+
+1. ダウンロードしたインストーラを実行する<br>
+<img src="./images/1-3_Terminal_Install_02.png" width=60%>
+
+1. 「現在のユーザー用にインストール」を押下する<br>
+<img src="./images/1-3_Terminal_Install_03.png" width=20%>
+
+1. 言語の選択は変更せず、「OK」を押下する<br>
+<img src="./images/1-3_Terminal_Install_04.png" width=20%>
+
+1. 使用許諾誓約書を確認し、「同意」を押下する<br>
+<img src="./images/1-3_Terminal_Install_05.png" width=40%>
+
+1. 「次へ」を押下する<br>
+<img src="./images/1-3_Terminal_Install_06.png" width=40%>
+
+1. インストール先は変更せず、「次へ」を押下する<br>
+<img src="./images/1-3_Terminal_Install_07.png" width=40%>
+
+1. コンポーネントの選択は変更せず、「次へ」を押下する<br>
+<img src="./images/1-3_Terminal_Install_08.png" width=40%>
+
+1. 言語の選択は変更せず、「次へ」を押下する<br>
+<img src="./images/1-3_Terminal_Install_09.png" width=40%>
+
+1. スタートメニューフォルダの指定は変更せず、「次へ」を押下する<br>
+<img src="./images/1-3_Terminal_Install_10.png" width=40%>
+
+1. 追加タスクの選択は変更せず、「次へ」を押下する<br>
+<img src="./images/1-3_Terminal_Install_11.png" width=40%>
+
+1. 「インストール」を押下する<br>
+<img src="./images/1-3_Terminal_Install_12.png" width=40%>
+
+### 1.4 インストールできたことの確認
+#### 1.4.1 Arduino IDE と Tera Term
+プログラムと機能の一覧にインストールしたツールがあることを確認事項とする。<br>
+
+1. コントロールパネルを開く<br>
+<img src="./images/1-4_Install_check_01.png" width=40%>
+
+1. 「プログラム」を押下する<br>
+<img src="./images/1-4_Install_check_02.png" width=40%>
+
+1. 「プログラムと機能」を押下する<br>
+<img src="./images/1-4_Install_check_03.png" width=40%>
+
+1. 一覧に「Arduino IDE」があれば、インストールできていることを確認できる<br>
+<img src="./images/1-4_Install_check_04.png" width=40%>
+
+1. 一覧に「Tera term」があれば、インストールできていることを確認できる<br>
+<img src="./images/1-4_Install_check_05.png" width=40%>
+
+### 1.4.2 デバイスドライバ
+デバイスマネージャーとArduino IDEで、Arduino UNO R4 WiFiを検出できることを確認事項とする。<br>
+
+1. USBポートにArduino UNO R4 WiFiを接続する<br>
+
+1. デバイスマネージャーを開く<br>
+<img src="./images/1-4_Install_check_06.png" width=40%>
+
+1. 「ポート(COMとLPT)」のツリーを開く<br>
+<img src="./images/1-4_Install_check_07.png" width=40%>
+
+1. 「USBシリアルデバイス」があれば、デバイスマネージャーで検出できていることを確認できる<br>
+<img src="./images/1-4_Install_check_08.png" width=40%>
+
+1. Arduino IDEを起動する<br>
+<img src="./images/1-4_Install_check_09.png" width=60%>
+
+1. 「ツール」を押下する<br>
+<img src="./images/1-4_Install_check_10.png" width=60%>
+
+1. 「ボード情報を取得」を押下する<br>
+<img src="./images/1-4_Install_check_11.png" width=60%>
+
+1. 「Arduino UNO R4 WiFi」のボード情報が表示できれば、Arduino IDEで検出できていることを確認できる<br>
+<img src="./images/1-4_Install_check_12.png" width=20%>
 
 ## 2. シリアルターミナルの使い方
 
