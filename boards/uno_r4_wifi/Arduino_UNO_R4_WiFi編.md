@@ -72,11 +72,11 @@
 1. 「完了」を押下する<br>
 <img src="./images/1-1_Tool_Install_08.png" width=60%>
 
-1. Arduino IDEの初回起動時はWindowsセキュリティが表示されるので「許可」を押下する<br>
+1. Arduino IDEの初回起動時はWindowsセキュリティのポップアップが表示されるので「許可」を押下する<br>
 <img src="./images/1-2_Driver_Install_01.png" width=60%>
 
 ### 1.2 ドライバのインストール
-Arduino IDEの初回起動後、以下のデバイスドライバのインストールが実行されるので、手順に従ってインストールをする
+Arduino IDEの初回起動後、次のデバイスドライバのインストールが実行された場合、手順に従ってインストールをする
 
 1. 「インストール」を押下して Adafruit Industries LLCポート(発行元:) をインストールする<br>
 <img src="./images/1-2_Driver_Install_02.png" width=60%>
