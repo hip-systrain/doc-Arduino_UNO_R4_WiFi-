@@ -68,53 +68,52 @@
 1. Arduino IDE を起動する。<br>
 
 1. 「ファイル」 を押下する。<br>
-<img src="./images/u1_serial_terminal_01.png" width=100%>
+<img src="./images/u1_serial_terminal_01.png" width=60%>
 
 1. 「新規スケッチ」 を押下する。<br>
-<img src="./images/u1_serial_terminal_02.png" width=100%>
+<img src="./images/u1_serial_terminal_02.png" width=60%>
 
 1. スケッチを次のコードに書き換える。<br>
-```
-void setup() {
-  // シリアル通信速度を9600bpsに設定
-  Serial.begin(9600);
-}
+    ```cpp
+    void setup() {
+      // シリアル通信速度を9600bpsに設定
+      Serial.begin(9600);
+    }
 
-void loop() {
-  // 接続先のシリアルターミナルに1秒間隔で"test"と出力する
-  Serial.print("test\r\n");
-  delay(1000);
-}
-```
-<img src="./images/u1_serial_terminal_03.png" width=100%>
+    void loop() {
+      // 接続先のシリアルターミナルに1秒間隔で"test"と出力する
+      Serial.print("test\r\n");
+      delay(1000);
+    }
+    ```
+    <img src="./images/u1_serial_terminal_03.png" width=60%>
 
-6. 「書き込み」 を押下する。<br>
-<img src="./images/u1_serial_terminal_04.png" width=100%>
+1. 「書き込み」 を押下する。<br>
+<img src="./images/u1_serial_terminal_04.png" width=60%>
 
-1. Tera term を起動する。<br>
-<img src="./images/u1_serial_terminal_05.png" width=100%>
+1. Tera Term を起動する。<br>
 
 1. 「シリアル」 を押下する。<br>
-<img src="./images/u1_serial_terminal_06.png" width=100%>
+<img src="./images/u1_serial_terminal_05.png" width=60%>
 
 1. 「OK」 を押下する。<br>
-<img src="./images/u1_serial_terminal_07.png" width=100%>
+<img src="./images/u1_serial_terminal_06.png" width=60%>
 
 1. 「設定」 を押下する。<br>
-<img src="./images/u1_serial_terminal_08.png" width=100%>
+<img src="./images/u1_serial_terminal_07.png" width=60%>
 
 1. 「端末」 を押下する。<br>
-<img src="./images/u1_serial_terminal_09.png" width=100%>
+<img src="./images/u1_serial_terminal_08.png" width=60%>
 
 1. 「シリアルポート」 を押下する。<br>
-<img src="./images/u1_serial_terminal_10.png" width=100%>
+<img src="./images/u1_serial_terminal_09.png" width=60%>
 
 1. 「スピード」 を **9600** にする。<br>
-<img src="./images/u1_serial_terminal_11.png" width=100%>
+<img src="./images/u1_serial_terminal_10.png" width=60%>
 
 1. 「OK」 を押下する。<br>
-<img src="./images/u1_serial_terminal_12.png" width=100%>
-
+<img src="./images/u1_serial_terminal_11.png" width=60%>
+    > 確認:Tera Term に **test** と出力されればシリアル通信が成功した動作確認となる<br>
 
 ## 3. プロジェクト作成
 
