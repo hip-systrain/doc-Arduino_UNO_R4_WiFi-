@@ -80,75 +80,75 @@
 ボードの動きとしては、LEDを一定の間隔で点滅させながら、ボタンを押した回数をカウントするものである。<br>
 (4章で作成した、題材1:LED点滅、題材3:UART出力のプログラムを参照)
 1. タクトスイッチをボードに接続する。(4.2 題材2のつなぎ方を参照)
-2. プログラムを記述する。(以下のコードを参照)<br>
-```
-#include <Arduino_FreeRTOS.h>
+2. プログラムを記述する。(以下のコードを参照)
+    ```
+    #include <Arduino_FreeRTOS.h>
 
-void LedTask(void *pvParameters);
-void ButtonTask(void *pvParameters);
+    void LedTask(void *pvParameters);
+    void ButtonTask(void *pvParameters);
 
-int outPin = 13;
-int inPin = 2;
-long baud = 9600;
+    int outPin = 13;
+    int inPin = 2;
+    long baud = 9600;
 
-void setup(){
-  Serial.begin(baud);
-  pinMode(outPin, OUTPUT);
-  pinMode(inPin, INPUT_PULLUP);
+    void setup(){
+      Serial.begin(baud);
+      pinMode(outPin, OUTPUT);
+      pinMode(inPin, INPUT_PULLUP);
 
-  xTaskCreate(
-    LedTask,
-    "LedTask",
-    128,
-    NULL,
-    2,
-    NULL
-  );
+      xTaskCreate(
+        LedTask,
+        "LedTask",
+        128,
+        NULL,
+        2,
+        NULL
+      );
 
-  xTaskCreate(
-    ButtonTask,
-    "ButtonTask",
-    128,
-    NULL,
-    1,
-    NULL
-  );
+      xTaskCreate(
+        ButtonTask,
+        "ButtonTask",
+        128,
+        NULL,
+        1,
+        NULL
+      );
 
-  vTaskStartScheduler();
-}
+      vTaskStartScheduler();
+    }
 
-void loop(){
-  // 使用しない
-}
+    void loop(){
+      // 使用しない
+    }
 
-void LedTask(void *pvParameters){
-  while(1){
-    digitalWrite(outPin, HIGH);
-    vTaskDelay(pdMS_TO_TICKS(100));
-    digitalWrite(outPin, LOW);
-    vTaskDelay(pdMS_TO_TICKS(400));
-  }
-}
-
-void ButtonTask(void *pvParameters){
-  int val = 0;
-  int count = 0;
-  int state = 0;
-
-  while(1){
-    val = digitalRead(inPin);
-    if(val == LOW){
-      if(val != state){
-        count = count + 1;
-        Serial.print(count);
-        Serial.println("回 ");
+    void LedTask(void *pvParameters){
+      while(1){
+        digitalWrite(outPin, HIGH);
+        vTaskDelay(pdMS_TO_TICKS(100));
+        digitalWrite(outPin, LOW);
+        vTaskDelay(pdMS_TO_TICKS(400));
       }
     }
+
+    void ButtonTask(void *pvParameters){
+      int val = 0;
+      int count = 0;
+      int state = 0;
+
+      while(1){
+        val = digitalRead(inPin);
+        if(val == LOW){
+          if(val != state){
+            count = count + 1;
+            Serial.print(count);
+            Serial.println("回 ");
+          }
+        }
     
-    state = val;
-  }
-}
-```
+        state = val;
+      }
+    }
+    ```
 3. 検証する。(4.1 題材1の検証の手順を参照)
 4. 書込みをする。(4.1 題材1の書込みの手順を参照)
 5. LEDが一定の間隔で点滅しながら、ボタンを押した回数がシリアルモニタに表示されることを確認する。
@@ -159,86 +159,86 @@ void ButtonTask(void *pvParameters){
 ボードの動きとしては、一定間隔で点滅しているLEDを、ボタンを押している間のみ間隔を変更するものである。
 1. タクトスイッチをボードに接続する。(4.2 題材2のつなぎ方を参照)
 2. プログラムを記述する。(以下のコードを参照)<br>
-```
-#include <Arduino_FreeRTOS.h>   // FreeRTOSを使うために必要
-
-QueueHandle_t buttonQueue;
-
-void ButtonTask(void *pvParameters);
-void LedTask(void *pvParameters);
-
-int outPin = 13;
-int inPin = 2;
-long baud = 9600;
-int queue_size = 1;
-
-void setup(){
-  Serial.begin(baud);   // 
-  pinMode(outPin, OUTPUT);    // 
-  pinMode(inPin, INPUT_PULLUP);   // 
-  buttonQueue = xQueueCreate(queue_size, sizeof(int));    // 
-
-  xTaskCreate(
-    ButtonTask,
-    "ButtonTask",
-    128,
-    NULL,
-    1,
-    NULL
-  );
-
-  xTaskCreate(
-    LedTask,
-    "LedTask",
-    128,
-    NULL,
-    2,
-    NULL
-  );
-
-  vTaskStartScheduler();
-}
-
-void loop(){
-  // 使用しない
-}
-
-void ButtonTask(void *pvParameters){
-  int val = 0;
-
-  while(1){
-    val = digitalRead(inPin);
-    xQueueSend(buttonQueue, &val, 0);
-  }
-}
-
-void LedTask(void *pvParameters){
-  int button_state = 0;
-  int loop_count = 0;
-  while(1){
-    xQueueReceive(buttonQueue, &button_state, portMAX_DELAY);
-    if(loop_count == 0){
-      if(button_state == HIGH){
-        digitalWrite(outPin, HIGH);
-        vTaskDelay(pdMS_TO_TICKS(500));
-      }else{
-        digitalWrite(outPin, HIGH);
-        vTaskDelay(pdMS_TO_TICKS(100));
-      }
-      loop_count = 1;
-    }else{
-      if(button_state == HIGH){
-        digitalWrite(outPin, LOW);
-        vTaskDelay(pdMS_TO_TICKS(500));
-      }else{
-        digitalWrite(outPin, LOW);
-        vTaskDelay(pdMS_TO_TICKS(100));
-      }
-      loop_count = 0;
+    ```
+    #include <Arduino_FreeRTOS.h>   // FreeRTOSを使うために必要
+    
+    QueueHandle_t buttonQueue;
+    
+    void ButtonTask(void *pvParameters);
+    void LedTask(void *pvParameters);
+    
+    int outPin = 13;
+    int inPin = 2;
+    long baud = 9600;
+    int queue_size = 1;
+    
+    void setup(){
+      Serial.begin(baud);   // 
+      pinMode(outPin, OUTPUT);    // 
+      pinMode(inPin, INPUT_PULLUP);   // 
+      buttonQueue = xQueueCreate(queue_size, sizeof(int));    // 
+    
+      xTaskCreate(
+        ButtonTask,
+        "ButtonTask",
+        128,
+        NULL,
+        1,
+        NULL
+      );
+    
+      xTaskCreate(
+        LedTask,
+        "LedTask",
+        128,
+        NULL,
+        2,
+        NULL
+      );
+    
+      vTaskStartScheduler();
     }
-  }
-}
-```
+    
+    void loop(){
+      // 使用しない
+    }
+    
+    void ButtonTask(void *pvParameters){
+      int val = 0;
+    
+      while(1){
+        val = digitalRead(inPin);
+        xQueueSend(buttonQueue, &val, 0);
+      }
+    }
+    
+    void LedTask(void *pvParameters){
+      int button_state = 0;
+      int loop_count = 0;
+      while(1){
+        xQueueReceive(buttonQueue, &button_state, portMAX_DELAY);
+        if(loop_count == 0){
+          if(button_state == HIGH){
+            digitalWrite(outPin, HIGH);
+            vTaskDelay(pdMS_TO_TICKS(500));
+          }else{
+            digitalWrite(outPin, HIGH);
+            vTaskDelay(pdMS_TO_TICKS(100));
+          }
+          loop_count = 1;
+        }else{
+          if(button_state == HIGH){
+            digitalWrite(outPin, LOW);
+            vTaskDelay(pdMS_TO_TICKS(500));
+          }else{
+            digitalWrite(outPin, LOW);
+            vTaskDelay(pdMS_TO_TICKS(100));
+          }
+          loop_count = 0;
+        }
+      }
+    }
+    ```
 3. 検証する。(4.1 題材1の検証の手順を参照)
 4. 書込みをする。(4.1 題材1の書込みの手順を参照)
 5. LEDが一定間隔で点滅しながら、ボタンを押されいる間のみ間隔が狭くなっていることを確認する。
