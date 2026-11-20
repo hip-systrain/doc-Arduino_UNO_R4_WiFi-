@@ -53,7 +53,7 @@
 
 | ツール | 接続方法 |
 |---|---|
-| Tera Term | Serial |
+| Arduino IDE | PC 上。接続なし。 |
 
 ### 2.2 通信設定(ポート、ボーレートなど)
 
@@ -66,12 +66,6 @@
 1. 開発 PC の USB ポートに Arduino UNO R4 WiFi を接続する。<br>
 
 1. Arduino IDE を起動する。<br>
-
-1. 「ファイル」 を押下する。<br>
-<img src="./images/u1_serial_terminal_01.png" width=60%>
-
-1. 「新規スケッチ」 を押下する。<br>
-<img src="./images/u1_serial_terminal_02.png" width=60%>
 
 1. スケッチを次のコードに書き換える。<br>
     ```cpp
@@ -86,34 +80,20 @@
       delay(1000);
     }
     ```
-    <img src="./images/u1_serial_terminal_03.png" width=60%>
+    <img src="./images/u1_serial_terminal_01.png" width=60%>
 
 1. 「書き込み」 を押下する。<br>
+<img src="./images/u1_serial_terminal_02.png" width=60%>
+
+1. シリアルモニタのアイコンを押下する。<br>
+<img src="./images/u1_serial_terminal_03.png" width=60%>
+
+1. シリアルモニタのシリアル通信速度を ***9600baud* に変更する。<br>
 <img src="./images/u1_serial_terminal_04.png" width=60%>
 
-1. Tera Term を起動する。<br>
-
-1. 「シリアル」 を押下する。<br>
+1. シリアルモニタの出力を確認する。<br>
 <img src="./images/u1_serial_terminal_05.png" width=60%>
-
-1. 「OK」 を押下する。<br>
-<img src="./images/u1_serial_terminal_06.png" width=60%>
-
-1. 「設定」 を押下する。<br>
-<img src="./images/u1_serial_terminal_07.png" width=60%>
-
-1. 「端末」 を押下する。<br>
-<img src="./images/u1_serial_terminal_08.png" width=60%>
-
-1. 「シリアルポート」 を押下する。<br>
-<img src="./images/u1_serial_terminal_09.png" width=60%>
-
-1. 「スピード」 を **9600** にする。<br>
-<img src="./images/u1_serial_terminal_10.png" width=60%>
-
-1. 「OK」 を押下する。<br>
-<img src="./images/u1_serial_terminal_11.png" width=60%>
-    > 確認:Tera Term に **test** と出力されればシリアル通信が成功した動作確認となる<br>
+    > 確認: **test** と出力されればシリアルモニタの動作が期待通りであることが確認できる。<br>
 
 ## 3. プロジェクト作成
 
