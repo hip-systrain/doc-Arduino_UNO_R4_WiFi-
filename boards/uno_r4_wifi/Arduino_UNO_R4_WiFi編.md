@@ -137,7 +137,7 @@
 1. 「ボード情報を取得」 を押下する。<br>
 <img src="./images/u1_install_check_07.png" width=60%>
 
-1. ボード情報を確認する<br>
+1. ボード情報を確認する。<br>
 <img src="./images/u1_install_check_08.png" width=20%>
     > 確認:「Arduino UNO R4 WiFi」 のボード情報が表示できていれば、デバイスドライバのインストールが成功したことが確認できる。<br>
 
