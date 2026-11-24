@@ -100,8 +100,8 @@
 > 確認：ブレークポイントを付与した箇所で実行が止まり、手順3.で次の行が実行されていれば成功<br>
 
 ### 6.4 変数・メモリ・レジスタの確認
-この節では、変数・メモリ・レジスタの確認を行う。
-1. 書き込みをした際にArduino IDE の画面下部の出力タブに出力されるメモリ使用量を確認する。
+この節では、デバッガによる変数・メモリ・レジスタの確認を行う。
+1. 書き込みをした際に Arduino IDE の画面下部の出力タブに出力されるメモリ使用量を確認する。
 2. 実行を止めたい行の行番号の左側を押下することで、ブレークポイントを付与する。
 3. デバッグを開始する。
 4. 画面左側の「デバッグ」タブから「変数」タブを押下する。
@@ -113,10 +113,107 @@
 > 確認：変数・メモリ・レジスタを確認することができれば成功<br>
 > 注意：メモリを確認する際、出力タブが閉じている場合がある。その場合は再度書き込みを行うことで確認できる
 
-### 6.5 シリアル出力による確認
-この節では、変数・メモリ・レジスタの確認を行う。
-1. 
-2. 
+### 6.5 シリアル出力によるデバッグ
+この節では、シリアル出力によるデバッグを行う。<br>
+今回は「5.3 題材6」のコードをもとに、実行がどこまで進んでいるかをSrial.Println関数で確認する。
+1. 題材6のコードを以下のように書き換える。
+    ```
+    #include <Arduino_FreeRTOS.h>   // FreeRTOSを使うために必要
+
+    QueueHandle_t buttonQueue;
+
+    void ButtonTask(void *pvParameters);
+    void LedTask(void *pvParameters);
+
+    int outPin = 13;
+    int inPin = 2;
+    long baud = 9600;
+    int queue_size = 1;
+
+    delay(1000);
+
+    void setup(){
+      Serial.begin(baud);   // 
+      pinMode(outPin, OUTPUT);    // 
+      pinMode(inPin, INPUT_PULLUP);   // 
+      buttonQueue = xQueueCreate(queue_size, sizeof(int));    // 
+
+    /* タスクを作成する*/
+      xTaskCreate(
+        ButtonTask,
+        "ButtonTask",
+        128,
+        NULL,
+        1,
+        NULL
+      );
+
+      Serial.println("Create ButtonTask");
+
+      xTaskCreate(
+        LedTask,
+        "LedTask",
+        128,
+        NULL,
+        2,
+        NULL
+      );
+
+      Serial.println("Create LedTask");
+
+      vTaskStartScheduler();
+    }
+
+    void loop(){
+      // 使用しない
+    }
+
+    void ButtonTask(void *pvParameters){
+      Serial.println("Start ButtonTask");
+      int val = 0;
+
+      while(1){
+        val = digitalRead(inPin);
+        xQueueSend(buttonQueue, &val, 0);
+      }
+    }
+
+
+    void LedTask(void *pvParameters){
+      Serial.println("Start LedTask");
+      int button_state = 0;
+      int loop_count = 0;
+      int loop = 0;
+      while(1){
+        Serial.print("Loop Count = ");
+        Serial.println(loop);
+        loop++;
+        xQueueReceive(buttonQueue, &button_state, portMAX_DELAY);
+        if(loop_count == 0){
+          if(button_state == HIGH){
+            digitalWrite(outPin, HIGH);
+            vTaskDelay(pdMS_TO_TICKS(500));
+          }else{
+            digitalWrite(outPin, HIGH);
+            vTaskDelay(pdMS_TO_TICKS(100));
+          }
+          loop_count = 1;
+        }else{
+          if(button_state == HIGH){
+            digitalWrite(outPin, LOW);
+            vTaskDelay(pdMS_TO_TICKS(500));
+          }else{
+            digitalWrite(outPin, LOW);
+            vTaskDelay(pdMS_TO_TICKS(100));
+          }
+          loop_count = 0;
+        }
+      }
+    }
+    ```
+2. 画面上部の検証ボタンを押下する。
+3. 画面上部の書き込みボタンを押下する。
+> 確認：シリアルモニタに「Create ButtonTask」「Create LedTask」「Start LedTask」「Loop Count = 0」「Start ButtonTask」が表示され、その後Loop Countが上がり続けていれば成功
 
 ## 7. トラブルシューティング
 
