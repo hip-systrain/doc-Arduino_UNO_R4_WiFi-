@@ -68,27 +68,27 @@ LED を0.5秒ごと点滅させるプログラム。<br>
 - **配線**<br>
 この節の題材では配線不要。<br>
 - **プログラム**<br>
-  ```
-  const int digitalOutPin = LED_BUILTIN;
-
-  void setup() {
-    pinMode(digitalOutPin, OUTPUT); // LED_BUILTINを出力モードに設定
-  }
-
-  void loop() {
-    digitalWrite(digitalOutPin, HIGH); // LEDを点灯(HIGHは電圧を5Vにする)   
-    delay(500);                        // 0.5秒間(500ms)待つ
-    digitalWrite(digitalOutPin, LOW);  // LEDを消灯(LOWは電圧を0Vにする)
-    delay(500);                        // 0.5秒間(500ms)待つ
-  }
-  ```
-- **ビルドと書込み**<br>
   1. 開発 PC の USB ポートに Arduino UNO R4 WiFi を接続する。<br>
 
   1. Arduino IDE を起動する。<br>
 
-  1. スケッチを **プログラム** のコードに書き換える。<br>
+  1. スケッチを次のコードに書き換える。<br>
+      ```c
+      const int digitalOutPin = LED_BUILTIN;
 
+      void setup() {
+        pinMode(digitalOutPin, OUTPUT); // LED_BUILTINを出力モードに設定
+      }
+
+      void loop() {
+        digitalWrite(digitalOutPin, HIGH); // LEDを点灯(HIGHは電圧を5Vにする)   
+        delay(500);                        // 0.5秒間(500ms)待つ
+        digitalWrite(digitalOutPin, LOW);  // LEDを消灯(LOWは電圧を0Vにする)
+        delay(500);                        // 0.5秒間(500ms)待つ
+      }
+      ```
+
+- **ビルドと書込み**<br>
   1. 「書き込み」 を押下する。<br>
   <img src="./images/u1_cording_build.png" width=30%>
       > 確認: Arduino IDE の右下に「書き込み完了」と表示されれば書き込みが成功したことが確認できる。<br>
@@ -106,32 +106,31 @@ LED を0.5秒ごと点滅させるプログラム。<br>
   <img src="./images/u1_cording_wiring.png" width=30%>
 
 - **プログラム**<br>
-  ```
-  const int digitalInPin = D2;
-  const int digitalOutPin = LED_BUILTIN;
-
-  void setup() {
-    pinMode(digitalInPin, INPUT);   // D2を入力モードに設定
-    pinMode(digitalOutPin, OUTPUT); // LED_BUILTINを出力モードに設定
-  }
-
-  void loop() {
-    if(digitalRead(digitalInPin) == HIGH) { // ボタンが押されている
-      digitalWrite(digitalOutPin, HIGH);    // LEDを点灯(HIGHは電圧を5Vにする)  
-    }
-    else {                                  // ボタンが押されていない
-      digitalWrite(digitalOutPin, LOW);     // LEDを消灯(LOWは電圧を0Vにする)
-    }
-  }
-  ```
-
-- **ビルドと書込み**<br>
   1. 開発 PC の USB ポートに Arduino UNO R4 WiFi を接続する。<br>
 
   1. Arduino IDE を起動する。<br>
 
-  1. スケッチを **プログラム** のコードに書き換える。<br>
+  1. スケッチを次のコードに書き換える。<br>
+      ```c
+      const int digitalInPin = D2;
+      const int digitalOutPin = LED_BUILTIN;
 
+      void setup() {
+        pinMode(digitalInPin, INPUT_PULLUP); // D2を入力モード(内部プルアップ抵抗有効)に設定
+        pinMode(digitalOutPin, OUTPUT);      // LED_BUILTINを出力モードに設定
+      }
+
+      void loop() {
+        if(digitalRead(digitalInPin) == LOW) { // ボタンが押されている
+          digitalWrite(digitalOutPin, HIGH);   // LEDを点灯(HIGHは電圧を5Vにする)  
+        }
+        else {                                 // ボタンが押されていない
+          digitalWrite(digitalOutPin, LOW);    // LEDを消灯(LOWは電圧を0Vにする)
+        }
+      }
+      ```
+
+- **ビルドと書込み**<br>
   1. 「書き込み」 を押下する。<br>
   <img src="./images/u1_cording_build.png" width=30%>
       > 確認: Arduino IDE の右下に「書き込み完了」と表示されれば書き込みが成功したことが確認できる。<br>
@@ -157,39 +156,39 @@ LED を0.5秒ごと点滅させるプログラム。<br>
   <img src="./images/u1_cording_wiring.png" width=30%>
 
 - **プログラム**<br>
-  ```
-  const int digitalInPin = D2;
-  const int digitalOutPin = LED_BUILTIN;
-  bool btnPush = false;
-  int count = 0;
-
-  void setup() {
-    Serial.begin(9600);             // シリアル通信速度を9600bpsに設定
-    pinMode(digitalInPin, INPUT);   // D2を入力モードに設定
-    pinMode(digitalOutPin, OUTPUT); // LED_BUILTINを出力モードに設定
-  }
-
-  void loop() {
-    if(digitalRead(digitalInPin) == HIGH) {  // ボタンが押されている
-      btnPush = true;                        // ボタン押下フラグをtrue
-    }
-    else {                                   // ボタンが押されていない
-      if (btnPush) {                         // ボタンを押してから離した
-        count++;                             // ボタンを押した回数をカウントアップ
-        Serial.print("ボタンを押した回数： "); // "ボタンを押した回数： "という文字列をシリアル出力する
-        Serial.println(count, DEC);          // ボタンが押した回数を10進数シリアル出力する
-        btnPush = false;                     // ボタン押下フラグをfalse
-      }
-    }
-  }
-  ```
-- **ビルドと書込み**<br>
   1. 開発 PC の USB ポートに Arduino UNO R4 WiFi を接続する。<br>
 
   1. Arduino IDE を起動する。<br>
 
-  1. スケッチを **プログラム** のコードに書き換える。<br>
+  1. スケッチを次のコードに書き換える。<br>
+      ```c
+      const int digitalInPin = D2;
+      const int digitalOutPin = LED_BUILTIN;
+      bool btnPush = false;
+      int count = 0;
 
+      void setup() {
+        Serial.begin(9600);                  // シリアル通信速度を9600bpsに設定
+        pinMode(digitalInPin, INPUT_PULLUP); // D2を入力モード(内部プルアップ抵抗有効)に設定
+        pinMode(digitalOutPin, OUTPUT);      // LED_BUILTINを出力モードに設定
+      }
+
+      void loop() {
+        if(digitalRead(digitalInPin) == LOW) {   // ボタンが押されている
+          btnPush = true;                        // ボタン押下フラグをtrue
+        }
+        else {                                   // ボタンが押されていない
+          if (btnPush) {                         // ボタンを押してから離した
+            count++;                             // ボタンを押した回数をカウントアップ
+            Serial.print("ボタンを押した回数： "); // "ボタンを押した回数： "という文字列をシリアル出力する
+            Serial.println(count, DEC);          // ボタンが押した回数を10進数シリアル出力する
+            btnPush = false;                     // ボタン押下フラグをfalse
+          }
+        }
+      }
+      ```
+
+- **ビルドと書込み**<br>
   1. 「書き込み」 を押下する。<br>
   <img src="./images/u1_cording_build.png" width=30%>
       > 確認: Arduino IDE の右下に「書き込み完了」と表示されれば書き込みが成功したことが確認できる。<br>
@@ -207,81 +206,79 @@ LED を0.5秒ごと点滅させるプログラム。<br>
 - **配線**<br>
 この節の題材では配線不要。<br>
 - **プログラム**<br>
-  ```
-  #include <FspTimer.h>
-
-  const int digitalInPin = D2;
-  const int digitalOutPin = LED_BUILTIN;
-  bool interrupt = false;
-
-  FspTimer timer;
-
-  void timerCallback(timer_callback_args_t *p_args) // タイマ割り込みのコールバック関数
-  {
-    interrupt = true; // 割り込みフラグをtrue
-  }
-
-  void setup() {
-    pinMode(digitalInPin, INPUT);   // D2を入力モードに設定
-    pinMode(digitalOutPin, OUTPUT); // LED_BUILTINを出力モードに設定
-
-    uint8_t timerType;
-    int8_t channel;
-    bool result;
-
-    channel = FspTimer::get_available_timer(timerType);  // 使用可能なタイマとチャンネル番号を取得
-    if (channel < 0) {                                   // 取得失敗
-      return;
-    }
-
-    result = timer.begin(
-        TIMER_MODE_PERIODIC,
-        timerType, 
-        channel,
-        1.0,
-        50.0,
-        timerCallback
-    ); // タイマ設定(1秒周期で動作)
-    if (result == false) { // 取得失敗
-      return;
-    }
-            
-    result = timer.setup_overflow_irq(); // 割り込み優先度設定
-    if (result == false) {               // 設定失敗
-      return;
-    }
-        
-    result = timer.open(); // タイマオープン
-    if (result == false) { // オープン失敗
-      return;
-    }
-
-    result = timer.start(); // タイマ開始
-    if (result == false) {  // 開始失敗
-      return;
-    }
-  }
-
-  void loop() {
-    if (interrupt) {     // タイマ割り込み発生
-      interrupt = false; // 割り込みフラグをfalse
-
-      if(digitalRead(digitalOutPin) == HIGH) { // LEDが点灯している
-        digitalWrite(digitalOutPin, LOW);      // LEDを消灯(LOWは電圧を0Vにする)
-      }
-      else {                                   // LEDが消灯している
-        digitalWrite(digitalOutPin, HIGH);     // LEDを点灯(HIGHは電圧を5Vにする)
-      }
-    }
-  }
-  ```
-- **ビルドと書込み**<br>
   1. 開発 PC の USB ポートに Arduino UNO R4 WiFi を接続する。<br>
 
   1. Arduino IDE を起動する。<br>
 
-  1. スケッチを **プログラム** のコードに書き換える。<br>
+  1. スケッチを次のコードに書き換える。<br>
+      ```c
+      #include <FspTimer.h>
 
+      const int digitalOutPin = LED_BUILTIN;
+      bool interrupt = false;
+
+      FspTimer timer;
+
+      void timerCallback(timer_callback_args_t *p_args) // タイマ割り込みのコールバック関数
+      {
+        interrupt = true; // 割り込みフラグをtrue
+      }
+
+      void setup() {
+        pinMode(digitalOutPin, OUTPUT); // LED_BUILTINを出力モードに設定
+
+        uint8_t timerType;
+        int8_t channel;
+        bool result;
+
+        channel = FspTimer::get_available_timer(timerType);  // 使用可能なタイマとチャンネル番号を取得
+        if (channel < 0) {                                   // 取得失敗
+          return;
+        }
+
+        result = timer.begin(
+            TIMER_MODE_PERIODIC,
+            timerType, 
+            channel,
+            1.0,
+            50.0,
+            timerCallback
+        ); // タイマ設定(1秒周期で動作)
+        if (result == false) { // 取得失敗
+          return;
+        }
+                
+        result = timer.setup_overflow_irq(); // 割り込み優先度設定
+        if (result == false) {               // 設定失敗
+          return;
+        }
+            
+        result = timer.open(); // タイマオープン
+        if (result == false) { // オープン失敗
+          return;
+        }
+
+        result = timer.start(); // タイマ開始
+        if (result == false) {  // 開始失敗
+          return;
+        }
+      }
+
+      void loop() {
+        if (interrupt) {     // タイマ割り込み発生
+          interrupt = false; // 割り込みフラグをfalse
+
+          if(digitalRead(digitalOutPin) == HIGH) { // LEDが点灯している
+            digitalWrite(digitalOutPin, LOW);      // LEDを消灯(LOWは電圧を0Vにする)
+          }
+          else {                                   // LEDが消灯している
+            digitalWrite(digitalOutPin, HIGH);     // LEDを点灯(HIGHは電圧を5Vにする)
+          }
+        }
+      }
+      ```
+
+- **ビルドと書込み**<br>
   1. 「書き込み」 を押下する。<br>
   <img src="./images/u1_cording_build.png" width=30%>
       > 確認: Arduino IDE の右下に「書き込み完了」と表示されれば書き込みが成功したことが確認できる。<br>
