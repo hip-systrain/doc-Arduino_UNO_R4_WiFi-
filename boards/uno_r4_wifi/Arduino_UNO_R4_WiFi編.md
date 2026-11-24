@@ -68,16 +68,14 @@
 1. Arduino IDE を起動する。<br>
 
 1. スケッチを次のコードに書き換える。<br>
-    ```cpp
+    ```
     void setup() {
-      // シリアル通信速度を9600bpsに設定
-      Serial.begin(9600);
+      Serial.begin(9600); // シリアル通信速度を9600bpsに設定
     }
 
     void loop() {
-      // 接続先のシリアルターミナルに1秒間隔で"test"と出力する
-      Serial.print("test\r\n");
-      delay(1000);
+      Serial.print("test\r\n"); // "test"という文字列をシリアル出力する
+      delay(1000);              // 1秒間(1000ms)待つ
     }
     ```
     <img src="./images/u1_serial_terminal_01.png" width=60%>
@@ -88,12 +86,12 @@
 1. シリアルモニタのアイコンを押下する。<br>
 <img src="./images/u1_serial_terminal_03.png" width=60%>
 
-1. シリアルモニタのシリアル通信速度を ***9600baud* に変更する。<br>
+1. シリアルモニタのシリアル通信速度を **9600baud** に変更する。<br>
 <img src="./images/u1_serial_terminal_04.png" width=60%>
 
 1. シリアルモニタの出力を確認する。<br>
 <img src="./images/u1_serial_terminal_05.png" width=60%>
-    > 確認: **test** と出力されればシリアルモニタの動作が期待通りであることが確認できる。<br>
+    > 確認: 1秒ごとに **test** と出力されればシリアルモニタの動作が期待通りであることが確認できる。<br>
 
 ## 3. プロジェクト作成
 
