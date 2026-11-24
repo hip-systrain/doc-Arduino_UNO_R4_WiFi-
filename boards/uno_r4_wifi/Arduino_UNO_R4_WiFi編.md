@@ -71,94 +71,106 @@
 この章では、FreeRTOSの導入方法、およびFreeRTOSを用いた題材について記述する。<br>
 
 ### 5.1 FreeRTOSの導入・設定
-この節では、FreeRTOSの導入・設定を行う。
-1. UNO R4 WiFiにはFreeRTOSがすでに入っているため、追加でインストールは不要とする。
-2. 設定する事項はないため、設定不要とする。
+UNO R4 WiFiにはFreeRTOSがすでに入っているため、追加でインストールは不要とする。
 
 ### 5.2 題材5:複数タスク
-この節では、複数タスクを実装する。<br>
-ボードの動きとしては、LEDを一定の間隔で点滅させながら、ボタンを押した回数をカウントするものである。<br>
-(4章で作成した、題材1:LED点滅、題材3:UART出力のプログラムを参照)
-1. タクトスイッチをボードに接続する。(4.2 題材2のつなぎ方を参照)
-2. プログラムを記述する。(以下のコードを参照)
+- **作るもの**<br>
+LED を0.5秒ごと点滅させながらボタンを押した回数をカウントするプログラム。<br>
+- **配線**<br>
+  1. ボードの D2 と GND (画像の赤枠部分)にジャンパワイヤを配線してボタンを接続する。<br>
+  <img src="./images/u1_cording_wiring.png" width=30%><br>
+- **プログラム**<br>
     ```
-    #include <Arduino_FreeRTOS.h>
+    #include <Arduino_FreeRTOS.h>    // FreeRTOSを使うために必要
 
-    void LedTask(void *pvParameters);
-    void ButtonTask(void *pvParameters);
+void LedTask(void *pvParameters);       // LedTask関数の宣言
+void ButtonTask(void *pvParameters);    // ButtonTask関数の宣言
 
-    int outPin = 13;
-    int inPin = 2;
-    long baud = 9600;
+const int digitalInPin = D2;
+const int digitalOutPin = LED_BUILTIN;
+bool btnPush = false;
+int count = 0;
 
-    void setup(){
-      Serial.begin(baud);
-      pinMode(outPin, OUTPUT);
-      pinMode(inPin, INPUT_PULLUP);
+void setup() {
+  Serial.begin(9600);                  // シリアル通信速度を9600bpsに設定
+  pinMode(digitalInPin, INPUT_PULLUP); // D2を入力モード(内部プルアップ抵抗有効)に設定
+  pinMode(digitalOutPin, OUTPUT);      // LED_BUILTINを出力モードに設定
 
-      xTaskCreate(
-        LedTask,
-        "LedTask",
-        128,
-        NULL,
-        2,
-        NULL
-      );
+  xTaskCreate(    // タスクを作る
+    LedTask,      // 関数名を指定
+    "LedTask",    // タスクの名前
+    128,          // タスクのスタックサイズ
+    NULL,         // タスクに渡す引数
+    2,            // タスクの優先度
+    NULL          // 作成したハンドルの格納場所
+  );
 
-      xTaskCreate(
-        ButtonTask,
-        "ButtonTask",
-        128,
-        NULL,
-        1,
-        NULL
-      );
+  xTaskCreate(      // タスクを作る
+    ButtonTask,     // 関数名を指定
+    "ButtonTask",   // タスクの名前
+    128,            // タスクのスタックサイズ
+    NULL,           // タスクに渡す引数
+    1,              // タスクの優先度
+    NULL            // 作成したハンドルの格納場所
+  );
 
-      vTaskStartScheduler();
-    }
+  vTaskStartScheduler();    // タスクを実行
+}
 
-    void loop(){
-      // 使用しない
-    }
+void loop(){
+  // 使用しない
+}
 
-    void LedTask(void *pvParameters){
-      while(1){
-        digitalWrite(outPin, HIGH);
-        vTaskDelay(pdMS_TO_TICKS(100));
-        digitalWrite(outPin, LOW);
-        vTaskDelay(pdMS_TO_TICKS(400));
+void LedTask(void *pvParameters) {
+  while(1){
+    digitalWrite(digitalOutPin, HIGH); // LEDを点灯(HIGHは電圧を5Vにする)   
+    delay(500);                        // 0.5秒間(500ms)待つ
+    digitalWrite(digitalOutPin, LOW);  // LEDを消灯(LOWは電圧を0Vにする)
+    delay(500);                        // 0.5秒間(500ms)待つ
+  }
+}
+
+void ButtonTask(void *pvParameters) {
+  while(1){
+    if(digitalRead(digitalInPin) == LOW) {      // ボタンが押されている
+    btnPush = true;                             // ボタン押下フラグをtrue
+  }else {                                       // ボタンが押されていない
+      if (btnPush) {                            // ボタンを押してから離した
+        count++;                                // ボタンを押した回数をカウントアップ
+        Serial.print("ボタンを押した回数： ");    // "ボタンを押した回数： "という文字列をシリアル出力する
+        Serial.println(count, DEC);             // ボタンが押した回数を10進数シリアル出力する
+        btnPush = false;                        // ボタン押下フラグをfalse
       }
     }
-
-    void ButtonTask(void *pvParameters){
-      int val = 0;
-      int count = 0;
-      int state = 0;
-
-      while(1){
-        val = digitalRead(inPin);
-        if(val == LOW){
-          if(val != state){
-            count = count + 1;
-            Serial.print(count);
-            Serial.println("回 ");
-          }
-        }
-    
-        state = val;
-      }
-    }
+    delay(50);        // ボタンのチャタリング対策
+  }
+}
     ```
-3. 画面上部の「検証」ボタンを押下する。(4.1 題材1の図を参照)
-4. 画面上部の「書き込み」ボタンを押下する。(4.1 題材1の図を参照)
-5. LEDが一定の間隔で点滅しながら、ボタンを押した回数がシリアルモニタに表示されることを確認する。
-> 確認:手順5の動作が確認することができれば成功
+- **ビルドと書込み**<br>
+  1. 開発 PC の USB ポートに Arduino UNO R4 WiFi を接続する。<br>
+
+  1. Arduino IDE を起動する。<br>
+
+  1. スケッチを **プログラム** のコードに書き換える。<br>
+
+  1. 「書き込み」 を押下する。<br>
+  <img src="./images/u1_cording_build.png" width=30%>
+      > 確認: Arduino IDE の右下に「書き込み完了」と表示されれば書き込みが成功したことが確認できる。<br>
+- **動作確認**<br>
+  1. Arduino UNO R4 WiFi の LED (画像の赤枠)を確認する。<br>
+  <img src="./images/u1_cording_led.png" width=30%><br>
+  1. シリアルモニタを確認する。<br>
+  <img src="./images/u1_cording_led.png" width=30%><br>
+  1. タクトスイッチを押す。<br>
+      > 確認: LED が0.5秒ごとに点滅しながら、ボタンを押した回数がシリアルモニタに表示されることが確認できる。<br>
 
 ### 5.3 題材6:タスク間通信
-この節では、タスク間通信を実装する手順を記述する。<br>
-ボードの動きとしては、一定間隔で点滅しているLEDを、ボタンを押している間のみ間隔を変更するものである。
-1. タクトスイッチをボードに接続する。(4.2 題材2のつなぎ方を参照)
-2. プログラムを記述する。(以下のコードを参照)<br>
+- **作るもの**<br>
+0.5秒間隔で点滅している LED を、ボタンを押すことで0.1秒間隔の点滅に切り替えるプログラム。<br>
+- **配線**<br>
+  1. ボードの D2 と GND (画像の赤枠部分)にジャンパワイヤを配線してボタンを接続する。<br>
+  <img src="./images/u1_cording_wiring.png" width=30%><br>
+- **プログラム**<br>
     ```
     #include <Arduino_FreeRTOS.h>   // FreeRTOSを使うために必要
     
@@ -239,10 +251,23 @@
       }
     }
     ```
-3. 画面上部の「検証」ボタンを押下する。(4.1 題材1の図を参照)
-4. 画面上部の「書き込み」ボタンを押下する。(4.1 題材1の図を参照)
-5. LEDが一定間隔で点滅しながら、ボタンを押されいる間のみ間隔が狭くなっていることを確認する。
-> 確認:手順5の動作が確認することができれば成功
+- **ビルドと書込み**<br>
+  1. 開発 PC の USB ポートに Arduino UNO R4 WiFi を接続する。<br>
+
+  1. Arduino IDE を起動する。<br>
+
+  1. スケッチを **プログラム** のコードに書き換える。<br>
+
+  1. 「書き込み」 を押下する。<br>
+  <img src="./images/u1_cording_build.png" width=30%>
+      > 確認: Arduino IDE の右下に「書き込み完了」と表示されれば書き込みが成功したことが確認できる。<br>
+
+- **動作確認**<br>
+  1. Arduino UNO R4 WiFi の LED (画像の赤枠)を確認する。<br>
+  <img src="./images/u1_cording_led.png" width=30%><br>
+
+  1. タクトスイッチを押す。<br>
+      > 確認: LED の点滅間隔が0.5秒から0.1秒に切り替わることが確認できる。<br>
 
 ## 6. デバッグ
 
