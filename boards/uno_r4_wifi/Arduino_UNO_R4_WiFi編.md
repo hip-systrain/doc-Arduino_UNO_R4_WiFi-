@@ -89,8 +89,12 @@ LED を0.5秒ごと点滅させるプログラム。<br>
       ```
 
 - **ビルドと書込み**<br>
-  1. 「書き込み」 を押下する。<br>
+  1. 「検証」 を押下する。<br>
       <img src="./images/u1_cording_build.png" width=30%><br>
+      > 確認: Arduino IDE の右下に「コンパイル完了」と表示されれば検証が成功したことが確認できる。<br>
+
+  1. 「書き込み」 を押下する。<br>
+      <img src="./images/u1_cording_write.png" width=30%><br>
       > 確認: Arduino IDE の右下に「書き込み完了」と表示されれば書き込みが成功したことが確認できる。<br>
 
 - **動作確認**<br>
@@ -131,8 +135,12 @@ LED を0.5秒ごと点滅させるプログラム。<br>
       ```
 
 - **ビルドと書込み**<br>
-  1. 「書き込み」 を押下する。<br>
+  1. 「検証」 を押下する。<br>
       <img src="./images/u1_cording_build.png" width=30%><br>
+      > 確認: Arduino IDE の右下に「コンパイル完了」と表示されれば検証が成功したことが確認できる。<br>
+
+  1. 「書き込み」 を押下する。<br>
+      <img src="./images/u1_cording_write.png" width=30%><br>
       > 確認: Arduino IDE の右下に「書き込み完了」と表示されれば書き込みが成功したことが確認できる。<br>
 
 - **動作確認**<br>
@@ -190,8 +198,12 @@ LED を0.5秒ごと点滅させるプログラム。<br>
       ```
 
 - **ビルドと書込み**<br>
-  1. 「書き込み」 を押下する。<br>
+  1. 「検証」 を押下する。<br>
       <img src="./images/u1_cording_build.png" width=30%><br>
+      > 確認: Arduino IDE の右下に「コンパイル完了」と表示されれば検証が成功したことが確認できる。<br>
+
+  1. 「書き込み」 を押下する。<br>
+      <img src="./images/u1_cording_write.png" width=30%><br>
       > 確認: Arduino IDE の右下に「書き込み完了」と表示されれば書き込みが成功したことが確認できる。<br>
 
 - **動作確認**<br>
@@ -280,8 +292,12 @@ LED を0.5秒ごと点滅させるプログラム。<br>
       ```
 
 - **ビルドと書込み**<br>
-  1. 「書き込み」 を押下する。<br>
+  1. 「検証」 を押下する。<br>
       <img src="./images/u1_cording_build.png" width=30%><br>
+      > 確認: Arduino IDE の右下に「コンパイル完了」と表示されれば検証が成功したことが確認できる。<br>
+
+  1. 「書き込み」 を押下する。<br>
+      <img src="./images/u1_cording_write.png" width=30%><br>
       > 確認: Arduino IDE の右下に「書き込み完了」と表示されれば書き込みが成功したことが確認できる。<br>
 
 - **動作確認**<br>
