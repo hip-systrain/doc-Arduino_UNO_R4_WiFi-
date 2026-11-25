@@ -88,7 +88,20 @@
 
 ## 8. 参考資料
 
-- 
+- Arduino UNO R4 WiFi ハードウェア仕様<br>
+https://docs.arduino.cc/hardware/uno-r4-wifi/
+
+- Arduino プログラミング言語仕様<br>
+https://docs.arduino.cc/language-reference/
+
+- Arduino UNO R4のFspTimerライブラリの使い方<br>
+https://qiita.com/yasuhiro-k/items/93efb640aa12f3db9086
+
+- Arduino公式 GitHub FspTimer.cpp（関数の実装）<br>
+https://github.com/arduino/ArduinoCore-renesas/blob/main/cores/arduino/FspTimer.cpp
+
+- Arduino公式 GitHub FspTimer.h（クラス定義）<br>
+https://github.com/arduino/ArduinoCore-renesas/blob/main/cores/arduino/FspTimer.h
 
 <!-- ボード独自の追加章がある場合は、ここから「## 9. 〜」として追加する -->
 
