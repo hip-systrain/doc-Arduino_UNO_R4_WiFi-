@@ -49,25 +49,25 @@
 1. Arduino IDE のダウンロードページ (https://www.arduino.cc/en/software/) へアクセスする。<br>
 
 1. 「Windows Win 10 and newer, 64bits」 を選択する。<br>
-<img src="./images/u1_tool_install_01.png" width=40%>
+    <img src="./images/u1_tool_install_01.png" width=40%><br>
 
 1. 「DOWNLOAD」 を押下する。<br>
-<img src="./images/u1_tool_install_02.png" width=40%>
+    <img src="./images/u1_tool_install_02.png" width=40%><br>
 
 1. ダウンロードしたインストーラを実行する。<br>
-<img src="./images/u1_tool_install_03.png" width=60%>
+    <img src="./images/u1_tool_install_03.png" width=60%><br>
 
 1. ライセンス条項を確認し、 「同意する」 を押下する。<br>
-<img src="./images/u1_tool_install_04.png" width=40%>
+    <img src="./images/u1_tool_install_04.png" width=40%><br>
 
 1. インストールオプションの選択は変更せず、 「次へ」 を押下する。<br>
-<img src="./images/u1_tool_install_05.png" width=40%>
+    <img src="./images/u1_tool_install_05.png" width=40%><br>
 
 1. インストール先フォルダは変更せず、 「インストール」 を押下する。<br>
-<img src="./images/u1_tool_install_06.png" width=40%>
+    <img src="./images/u1_tool_install_06.png" width=40%><br>
 
 1. 「完了」 を押下する。<br>
-<img src="./images/u1_tool_install_07.png" width=40%>
+    <img src="./images/u1_tool_install_07.png" width=40%><br>
 
 ### 1.2 ドライバのインストール
 この節では、デバイスドライバをインストールする。<br>
@@ -75,70 +75,70 @@
 1. Arduino IDE を起動する。<br>
 
 1. 「許可」 を押下する。<br>
-<img src="./images/u1_driver_install_01.png" width=30%>
+    <img src="./images/u1_driver_install_01.png" width=30%><br>
     > 注意:画像の画面が表示された場合、この操作を行う。<br>
 
 1. 「インストール」 を押下する。<br>
-<img src="./images/u1_driver_install_02.png" width=40%>
+    <img src="./images/u1_driver_install_02.png" width=40%><br>
     > 注意:画像の画面が表示された場合、この操作を行う。<br>
 
 1. 「インストール」 を押下する。<br>
-<img src="./images/u1_driver_install_03.png" width=40%>
+    <img src="./images/u1_driver_install_03.png" width=40%><br>
     > 注意:画像の画面が表示された場合、この操作を行う。<br>
 
 1. 「インストール」 を押下する。<br>
-<img src="./images/u1_driver_install_04.png" width=40%>
+    <img src="./images/u1_driver_install_04.png" width=40%><br>
     > 注意:画像の画面が表示された場合、この操作を行う。<br>
 
 1. 「インストール」 を押下する。<br>
-<img src="./images/u1_driver_install_05.png" width=40%>
+    <img src="./images/u1_driver_install_05.png" width=40%><br>
     > 注意:画像の画面が表示された場合、この操作を行う。<br>
 
 1. ボードのアイコンを押下する。<br>
-<img src="./images/u1_driver_install_06.png" width=60%>
+    <img src="./images/u1_driver_install_06.png" width=60%><br>
 
 1. 「検索をフィルタ…」 の入力欄に **Arduino UNO R4 Boards** と入力する。<br>
-<img src="./images/u1_driver_install_07.png" width=60%>
+    <img src="./images/u1_driver_install_07.png" width=60%><br>
 
 1. フィルタで表示された 「Arduino UNO R4 Boards」 の下にある 「インストール」 を押下する。<br>
-<img src="./images/u1_driver_install_08.png" width=60%>
+    <img src="./images/u1_driver_install_08.png" width=60%><br>
 
 1. 「インストール」 を押下する。<br>
-<img src="./images/u1_driver_install_09.png" width=40%>
+    <img src="./images/u1_driver_install_09.png" width=40%><br>
     > 注意:画像の画面が表示された場合、この操作を行う。<br>
 
 1. デバイスドライバのインストールが完了すると　**Platform arduino:renesas_uno@1.6.0 installed** と出力される。<br>
-<img src="./images/u1_driver_install_10.png" width=60%>
+    <img src="./images/u1_driver_install_10.png" width=60%><br>
 
 ### 1.3 インストールできたことの確認
 この節では、ツールとデバイスドライバがインストールできたことの確認をする。<br>
 
 1. コントロールパネルを開く。<br>
-<img src="./images/u1_install_check_01.png" width=40%>
+    <img src="./images/u1_install_check_01.png" width=40%><br>
 
 1. 「プログラム」 を押下する。<br>
-<img src="./images/u1_install_check_02.png" width=40%>
+    <img src="./images/u1_install_check_02.png" width=40%><br>
 
 1. 「プログラムと機能」 を押下する。<br>
-<img src="./images/u1_install_check_03.png" width=40%>
+    <img src="./images/u1_install_check_03.png" width=40%><br>
 
 1. 一覧から「Arduino IDE」 を探す。<br>
-<img src="./images/u1_install_check_04.png" width=40%>
+    <img src="./images/u1_install_check_04.png" width=40%><br>
     > 確認:一覧に「Arduino IDE」があれば、Arduino IDE のインストールが成功したことが確認できる。<br>
 
 1. 開発 PC の USB ポートに Arduino UNO R4 WiFi を接続する。<br>
 
 1. Arduino IDE を起動する。<br>
-<img src="./images/u1_install_check_05.png" width=60%>
+    <img src="./images/u1_install_check_05.png" width=60%><br>
 
 1. 「ツール」 を押下する。<br>
-<img src="./images/u1_install_check_06.png" width=60%>
+    <img src="./images/u1_install_check_06.png" width=60%><br>
 
 1. 「ボード情報を取得」 を押下する。<br>
-<img src="./images/u1_install_check_07.png" width=60%>
+    <img src="./images/u1_install_check_07.png" width=60%><br>
 
 1. ボード情報を確認する。<br>
-<img src="./images/u1_install_check_08.png" width=20%>
+    <img src="./images/u1_install_check_08.png" width=20%><br>
     > 確認:「Arduino UNO R4 WiFi」 のボード情報が表示できていれば、デバイスドライバのインストールが成功したことが確認できる。<br>
 
 ## 2. シリアルターミナルの使い方
