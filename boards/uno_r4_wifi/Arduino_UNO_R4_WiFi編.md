@@ -90,12 +90,12 @@ LED を0.5秒ごと点滅させるプログラム。<br>
 
 - **ビルドと書込み**<br>
   1. 「書き込み」 を押下する。<br>
-  <img src="./images/u1_cording_build.png" width=30%>
+      <img src="./images/u1_cording_build.png" width=30%><br>
       > 確認: Arduino IDE の右下に「書き込み完了」と表示されれば書き込みが成功したことが確認できる。<br>
 
 - **動作確認**<br>
   1. Arduino UNO R4 WiFi の LED (画像の赤枠)を確認する。<br>
-  <img src="./images/u1_cording_led.png" width=30%>
+      <img src="./images/u1_cording_led.png" width=30%><br>
       > 確認: LED が0.5秒ごとに点滅していれば動作が期待通りであることが確認できる。<br>
 
 ### 4.2 題材2:ボタン入力
@@ -103,7 +103,7 @@ LED を0.5秒ごと点滅させるプログラム。<br>
 ボタンを押している間だけ LED を点灯させるプログラム。<br>
 - **配線**<br>
   1. ボードの D2 と GND (画像の赤枠部分)にジャンパワイヤを配線してボタンを接続する。<br>
-  <img src="./images/u1_cording_wiring.png" width=30%>
+      <img src="./images/u1_cording_wiring.png" width=30%><br>
 
 - **プログラム**<br>
   1. 開発 PC の USB ポートに Arduino UNO R4 WiFi を接続する。<br>
@@ -132,20 +132,20 @@ LED を0.5秒ごと点滅させるプログラム。<br>
 
 - **ビルドと書込み**<br>
   1. 「書き込み」 を押下する。<br>
-  <img src="./images/u1_cording_build.png" width=30%>
+      <img src="./images/u1_cording_build.png" width=30%><br>
       > 確認: Arduino IDE の右下に「書き込み完了」と表示されれば書き込みが成功したことが確認できる。<br>
 
 - **動作確認**<br>
   1. ボードに接続したボタンを押している状態にする。<br>
 
   1. Arduino UNO R4 WiFi の LED (画像の赤枠)を確認する。<br>
-  <img src="./images/u1_cording_led.png" width=30%>
+      <img src="./images/u1_cording_led.png" width=30%><br>
       > 確認: LED が点灯していれば動作が期待通りであることが確認できる。<br>
 
   1. ボードに接続したボタンを押していない状態にする。<br>
 
   1. Arduino UNO R4 WiFi の LED (画像の赤枠)を確認する。<br>
-  <img src="./images/u1_cording_led.png" width=30%>
+      <img src="./images/u1_cording_led.png" width=30%><br>
       > 確認: LED が消灯していれば動作が期待通りであることが確認できる。<br>
 
 ### 4.3 題材3:UART出力
@@ -153,7 +153,7 @@ LED を0.5秒ごと点滅させるプログラム。<br>
 ボタンを押した回数をパソコンに表示させるプログラム。<br>
 - **配線**<br>
   1. ボードの D2 と GND (画像の赤枠部分)にジャンパワイヤを配線してボタンを接続する。<br>
-  <img src="./images/u1_cording_wiring.png" width=30%>
+      <img src="./images/u1_cording_wiring.png" width=30%><br>
 
 - **プログラム**<br>
   1. 開発 PC の USB ポートに Arduino UNO R4 WiFi を接続する。<br>
@@ -191,14 +191,14 @@ LED を0.5秒ごと点滅させるプログラム。<br>
 
 - **ビルドと書込み**<br>
   1. 「書き込み」 を押下する。<br>
-  <img src="./images/u1_cording_build.png" width=30%>
+      <img src="./images/u1_cording_build.png" width=30%><br>
       > 確認: Arduino IDE の右下に「書き込み完了」と表示されれば書き込みが成功したことが確認できる。<br>
 
 - **動作確認**<br>
   1. ボードに接続したボタンを押下する。<br>
 
   1. シリアルモニタを確認する。<br>
-  <img src="./images/u1_cording_serial.png" width=60%>
+      <img src="./images/u1_cording_serial.png" width=60%><br>
       > 確認: ボタンを押下する度にボタンを押した回数が出力されれば動作が期待通りであることが確認できる。<br>
 
 ### 4.4 題材4:タイマ割込み
@@ -281,12 +281,12 @@ LED を0.5秒ごと点滅させるプログラム。<br>
 
 - **ビルドと書込み**<br>
   1. 「書き込み」 を押下する。<br>
-  <img src="./images/u1_cording_build.png" width=30%>
+      <img src="./images/u1_cording_build.png" width=30%><br>
       > 確認: Arduino IDE の右下に「書き込み完了」と表示されれば書き込みが成功したことが確認できる。<br>
 
 - **動作確認**<br>
   1. Arduino UNO R4 WiFi の LED (画像の赤枠)を確認する。<br>
-  <img src="./images/u1_cording_led.png" width=30%>
+      <img src="./images/u1_cording_led.png" width=30%><br>
       > 確認: LED が1秒ごとに点滅していれば動作が期待通りであることが確認できる。<br>
 
 ## 5. コーディング・ビルド・書込み(FreeRTOS)
