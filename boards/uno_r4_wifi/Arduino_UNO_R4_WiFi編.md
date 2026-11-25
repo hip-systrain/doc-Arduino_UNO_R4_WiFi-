@@ -76,183 +76,194 @@
 ## 6. デバッグ
 この章では、デバッガを使ったデバッグとシリアル出力を使ったデバッグの両方の手順について記述する。<br>
 ### 6.1 デバッガの接続(配線図・写真)
-この節では、デバッガを接続する。
-1. Arduino IDE のデバッガを使用するため、追加でデバッガの接続は不要とする。
+Arduino IDE のデバッガを使用するため、追加でデバッガの接続は不要とする。
 ### 6.2 デバッグの開始
 この節では、 Arduino IDE のデバッガを使ったデバッグの開始を行う。
 1. Arduino IDE の画面上部の「スケッチ」タブを押下する。<br>
-<img src="./images/スケッチ.png" width=40%><br>
+<img src="./images/u2_debug_sketch.png" width=40%><br>
 
 2. 「デバッグに最適化」を押下する。<br>
-<img src="./images/デバッグに最適化.png" width=40%><br>
+<img src="./images/u2_debug_optimaize.png" width=40%><br>
 
 3. 画面上部の「ツール」タブを押下する。<br>
-<img src="./images/ツール.png" width=40%><br>
+<img src="./images/u2_debug_tool.png" width=40%><br>
 
 4. 「書き込み装置」を押下する。<br>
-<img src="./images/書き込み装置.png" width=40%><br>
+<img src="./images/u2_debug_programmer.png" width=40%><br>
 
 5. 「ARM CMSIS-DAP compatible」を押下する。<br>
-<img src="./images/ARM.png" width=40%><br>
+<img src="./images/u2_debug_ARMCMSIS-DAP.png" width=40%><br>
 
 6. 画面左上部の「検証」ボタンを押下する。<br>
-<img src="./images/検証.png" width=40%><br>
+<img src="./images/u2_debug_build.png" width=40%><br>
 
 7. 画面左上部の「書き込み」ボタンを押下する。<br>
-<img src="./images/書き込み1.png" width=40%><br>
+<img src="./images/u2_debug_compile.png" width=40%><br>
 
 8. 画面左上部の「デバッグの開始」ボタンを押下する。<br>
-<img src="./images/デバッグの開始1.png" width=40%><br>
+<img src="./images/u2_debug_startdebug.png" width=40%><br>
 
-> 確認：画面左部のデバッグのアイコンに青丸の数字1がついていれば成功<br>
+> 確認：画面左部のデバッグのアイコンに青丸の数字1がつき、デバッグが開始していることが確認できる<br>
 
 ### 6.3 ブレークポイント・ステップ実行
 この節では、ブレークポイントの付与とステップ実行を行う。
 1. 実行を止めたい行の行番号の左側を押下することで、ブレークポイントを付与する。<br>
-<img src="./images/ブレークポイント.png" width=40%><br>
+<img src="./images/u2_debug_breakpoint.png" width=40%><br>
 
-2. デバッグを開始する。<br>
-(「6.2 デバッグの開始」を参照)<br>
+2. 画面左上部の「デバッグの開始」ボタンを押下する。<br>
+<img src="./images/u2_debug_startdebug.png" width=40%><br>
 
-3. 画面左部の「デバッグ」タブからステップオーバー(ステップイン)ボタンを押下する。<br>
-<img src="./images/ステップイン.png" width=40%><br>
+3. 画面左部の「デバッグ」タブからステップオーバーボタンを押下する。<br>
+<img src="./images/u2_debug_stepover.png" width=40%><br>
 
-> 確認：ブレークポイントを付与した箇所で実行が止まり、手順3.で次の行が実行されていれば成功<br>
+> 確認：ブレークポイントを付与した箇所で実行が止まり、手順3.で次の行が実行されることが確認できる<br>
 
 ### 6.4 変数・メモリ・レジスタの確認
 この節では、デバッガによる変数・メモリ・レジスタの確認を行う。
 1. 書き込みをした際に Arduino IDE の画面下部の「出力」タブに出力されるメモリ使用量を確認する。<br>
-<img src="./images/メモリ.png" width=40%><br>
+<img src="./images/u2_debug_memory.png" width=40%><br>
 
 2. 実行を止めたい行の行番号の左側を押下することで、ブレークポイントを付与する。<br>
-<img src="./images/ブレークポイント1.png" width=40%><br>
+<img src="./images/u2_debug_breakpoint.png" width=40%><br>
 
-3. デバッグを開始する。<br>
-(「6.2 デバッグの開始」を参照)<br>
+3. 画面左上部の「デバッグの開始」ボタンを押下する。<br>
+<img src="./images/u2_debug_startdebug.png" width=40%><br>
 
 4. 画面左側の「デバッグ」タブから「変数」タブを押下する。<br>
-<img src="./images/変数タブ.png" width=40%><br>
+<img src="./images/u2_debug_variable.png" width=40%><br>
 
 5. 「変数」タブ内の「Local」タブを押すことで、実行中の関数内のローカル変数を確認する。<br>
-<img src="./images/Local変数.png" width=40%><br>
+<img src="./images/u2_debug_local.png" width=40%><br>
 
 6. 「変数」タブ内の「Global」タブを押すことで、グローバル変数を確認する。<br>
-<img src="./images/Global変数.png" width=40%><br>
+<img src="./images/u2_debug_global.png" width=40%><br>
 
 7. 「変数」タブ内の「Static」タブを押すことで、Static変数を確認する。<br>
-<img src="./images//Static変数.png" width=40%><br>
+<img src="./images/u2_debug_static.png" width=40%><br>
 
 8. 「変数」タブ内の「Registers」タブを押すことで、レジスタを確認する。<br>
-<img src="./images/Registersタブ.png" width=40%><br>
+<img src="./images/u2_debug_register.png" width=40%><br>
 
-> 確認：変数・メモリ・レジスタを確認することができれば成功<br>
-> 注意：メモリを確認する際、出力タブが閉じている場合がある。その場合は再度書き込みを行うことで確認できる
+> 確認：変数・メモリ・レジスタを確認することができる<br>
+> 注意：メモリを確認する際、出力タブが閉じている場合がある。その場合は再度書き込みを行うことで確認できる。
 
 ### 6.5 シリアル出力によるデバッグ
 この節では、シリアル出力によるデバッグを行う。<br>
 今回は「5.3 題材6」のコードをもとに、実行がどこまで進んでいるかをSrial.Println関数で確認する。
 1. 題材6のコードを以下のように書き換える。
     ```
-    #include <Arduino_FreeRTOS.h>   // FreeRTOSを使うために必要
+    #include <Arduino_FreeRTOS.h>    // FreeRTOSを使うために必要
 
-    QueueHandle_t buttonQueue;
+    QueueHandle_t blinkQueue;    // キューのハンドルを取得
 
-    void ButtonTask(void *pvParameters);
-    void LedTask(void *pvParameters);
+    void ButtonTask(void *pvParameters);    // ButtonTask関数の宣言
+    void LedTask(void *pvParameters);       // LedTask関数の宣言
 
-    int outPin = 13;
-    int inPin = 2;
-    long baud = 9600;
-    int queue_size = 1;
+    const int digitalInPin = D2;
+    const int digitalOutPin = LED_BUILTIN;
+    const int boud = 9600;
 
-    delay(1000);
+    void setup() {
+      Serial.begin(boud);
+      delay(1000);
+      Serial.println("start setup");
 
-    void setup(){
-      Serial.begin(baud);   // 
-      pinMode(outPin, OUTPUT);    // 
-      pinMode(inPin, INPUT_PULLUP);   // 
-      buttonQueue = xQueueCreate(queue_size, sizeof(int));    // 
+      blinkQueue = xQueueCreate(1, sizeof(int));   // int型が1つ入るキューを作成
 
-    /* タスクを作成する*/
-      xTaskCreate(
-        ButtonTask,
-        "ButtonTask",
-        128,
-        NULL,
-        1,
-        NULL
+      pinMode(digitalInPin, INPUT_PULLUP);    // D2を入力モード(内部プルアップ抵抗有効)に設定
+      pinMode(digitalOutPin, OUTPUT);         // LED_BUILTINを出力モードに設定
+
+      xTaskCreate(      // タスクを作る
+        ButtonTask,     // 関数名を指定
+        "ButtonTask",   // タスクの名前
+        128,            // タスクのスタックサイズ
+        NULL,           // タスクに渡す引数
+        2,              // タスクの優先度
+        NULL            // 作成したハンドルの格納場所
       );
 
-      Serial.println("Create ButtonTask");
+      Serial.println("create ButtonTask");
 
-      xTaskCreate(
-        LedTask,
-        "LedTask",
-        128,
-        NULL,
-        2,
-        NULL
+      xTaskCreate(      // タスクを作る
+        LedTask,        // 関数名を指定
+        "LedTask",      // タスクの名前
+        128,            // タスクのスタックサイズ
+        NULL,           // タスクに渡す引数
+        1,              // タスクの優先度
+        NULL            // 作成したハンドルの格納場所
       );
 
-      Serial.println("Create LedTask");
+      Serial.println("create LedTask");
 
-      vTaskStartScheduler();
+      vTaskStartScheduler();    // タスクを実行
     }
 
     void loop(){
       // 使用しない
     }
 
-    void ButtonTask(void *pvParameters){
-      Serial.println("Start ButtonTask");
-      int val = 0;
+    void ButtonTask(void *pvParameters){    // ボタンの押下でLEDの点滅間隔を変更する関数
+      Serial.println("start ButtonTask");
+
+      int button_state = HIGH;
+      int last_button_state = HIGH;
+      int blink_mode = 0;
 
       while(1){
-        val = digitalRead(inPin);
-        xQueueSend(buttonQueue, &val, 0);
+        button_state = digitalRead(digitalInPin);   // ボタンの状態を取得
+        if(button_state == LOW){                    // ボタンが押されていたら
+          if(last_button_state == HIGH){            // 前回のボタンの状態がHIGHだったら
+            if(blink_mode == 0){                    // 点滅の間隔を切り替える
+              blink_mode = 1;
+              Serial.println("blink_mode 1");
+            }else{
+              blink_mode = 0;
+              Serial.println("blink_mode 0");
+            }
+          }
+        }
+
+        xQueueSend(blinkQueue, &blink_mode, 0);    // 点滅間隔を送る
+        last_button_state = button_state;           // 今回のボタンの状態を保持
+
+        vTaskDelay(pdMS_TO_TICKS(10));              // タスクを待ち状態にする
       }
     }
 
+    void LedTask(void *pvParameters){   // LEDを点滅させる関数
+      Serial.println("start LedTask");
 
-    void LedTask(void *pvParameters){
-      Serial.println("Start LedTask");
-      int button_state = 0;
-      int loop_count = 0;
-      int loop = 0;
+      int blink_mode = 0;
+      int led_time = 500;
+      int led_state = LOW;
+
       while(1){
-        Serial.print("Loop Count = ");
-        Serial.println(loop);
-        loop++;
-        xQueueReceive(buttonQueue, &button_state, portMAX_DELAY);
-        if(loop_count == 0){
-          if(button_state == HIGH){
-            digitalWrite(outPin, HIGH);
-            vTaskDelay(pdMS_TO_TICKS(500));
-          }else{
-            digitalWrite(outPin, HIGH);
-            vTaskDelay(pdMS_TO_TICKS(100));
-          }
-          loop_count = 1;
+        xQueueReceive(blinkQueue, &blink_mode, 0);   // 送られた点滅間隔を受け取る
+
+        if (blink_mode == 0){     // 受け取った点滅間隔から待ち時間を定める
+          led_time = 500;
         }else{
-          if(button_state == HIGH){
-            digitalWrite(outPin, LOW);
-            vTaskDelay(pdMS_TO_TICKS(500));
-          }else{
-            digitalWrite(outPin, LOW);
-            vTaskDelay(pdMS_TO_TICKS(100));
-          }
-          loop_count = 0;
+          led_time = 100;
         }
+
+        if (led_state == HIGH){   // LEDの状態を切り替える
+          led_state = LOW;
+        }else{
+          led_state = HIGH;
+        }
+
+        digitalWrite(digitalOutPin, led_state);   // LEDを点灯消灯させる
+        vTaskDelay(pdMS_TO_TICKS(led_time));      // 定めた時間待機する
       }
     }
     ```
-2. 画面上部の検証ボタンを押下する。<br>
-<img src="./images/検証.png" width=40%><br>
+6. 画面左上部の「検証」ボタンを押下する。<br>
+<img src="./images/u2_debug_build.png" width=40%><br>
 
-3. 画面上部の書き込みボタンを押下する。<br>
-<img src="./images/書き込み1.png" width=40%><br>
+7. 画面左上部の「書き込み」ボタンを押下する。<br>
+<img src="./images/u2_debug_compile.png" width=40%><br>
 
-> 確認：シリアルモニタに「Create ButtonTask」「Create LedTask」「Start LedTask」「Loop Count = 0」「Start ButtonTask」が表示され、その後Loop Countが上がり続けていれば成功
+> 確認：シリアルモニタに「start setup」「create ButtonTask」「create LedTask」「start ButtonTask」「start LedTask」が表示され、その後ボタンを押すたびに「blink_mode」の値が1と0で切り替わることが確認できる
 
 ## 7. トラブルシューティング
 
