@@ -94,21 +94,36 @@
     <img src="./images/u1_driver_install_05.png" width=40%><br>
     > 注意:画像の画面が表示された場合、この操作を行う。<br>
 
-1. ボードのアイコンを押下する。<br>
+1. 「 File 」 を押下する。<br>
     <img src="./images/u1_driver_install_06.png" width=60%><br>
 
-1. 「検索をフィルタ…」 の入力欄に **Arduino UNO R4 Boards** と入力する。<br>
+1. 「 Preferences... 」 を押下する。<br>
     <img src="./images/u1_driver_install_07.png" width=60%><br>
 
-1. フィルタで表示された 「Arduino UNO R4 Boards」 の下にある 「インストール」 を押下する。<br>
+1. 「 Language 」 を日本語に変更する。<br>
     <img src="./images/u1_driver_install_08.png" width=60%><br>
 
+1. 「 Editor Quick Suggestions 」 をチェックする。<br>
+    <img src="./images/u1_driver_install_09.png" width=60%><br>
+
+1. 「 OK 」 を押下する。<br>
+    <img src="./images/u1_driver_install_10.png" width=60%><br>
+
+1. ボードのアイコンを押下する。<br>
+    <img src="./images/u1_driver_install_11.png" width=60%><br>
+
+1. 「検索をフィルタ…」 の入力欄に **Arduino UNO R4 Boards** と入力する。<br>
+    <img src="./images/u1_driver_install_12.png" width=60%><br>
+
+1. フィルタで表示された 「Arduino UNO R4 Boards」 の下にある 「インストール」 を押下する。<br>
+    <img src="./images/u1_driver_install_13.png" width=60%><br>
+
 1. 「インストール」 を押下する。<br>
-    <img src="./images/u1_driver_install_09.png" width=40%><br>
+    <img src="./images/u1_driver_install_14.png" width=40%><br>
     > 注意:画像の画面が表示された場合、この操作を行う。<br>
 
 1. デバイスドライバのインストールが完了すると　**Platform arduino:renesas_uno@1.6.0 installed** と出力される。<br>
-    <img src="./images/u1_driver_install_10.png" width=60%><br>
+    <img src="./images/u1_driver_install_15.png" width=60%><br>
 
 ### 1.3 インストールできたことの確認
 この節では、ツールとデバイスドライバがインストールできたことの確認をする。<br>
