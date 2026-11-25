@@ -59,17 +59,17 @@
 1. Arduino IDE を起動する。<br>
 
 1. 「ファイル」 を押下する。<br>
-<img src="./images/u1_sketch_create_01.png" width=60%>
+    <img src="./images/u1_sketch_create_01.png" width=60%><br>
 
 1. 「名前を付けて保存...」 を押下する。<br>
-<img src="./images/u1_sketch_create_02.png" width=60%>
+    <img src="./images/u1_sketch_create_02.png" width=60%><br>
 
 1. 「スケッチフォルダ名」 を入力する。<br>
-<img src="./images/u1_sketch_create_03.png" width=60%>
+    <img src="./images/u1_sketch_create_03.png" width=60%><br>
 
 1. 「保存」 を押下する。<br>
-<img src="./images/u1_sketch_create_04.png" width=60%>
-    > 確認:保存先フォルダにスケッチフォルダ名と同名のフォルダと .ino ファイルがあれば、スケッチの作成が成功したことが確認できる。
+    <img src="./images/u1_sketch_create_04.png" width=60%><br>
+    > 確認:保存先フォルダにスケッチフォルダ名と同名のフォルダと .ino ファイルがあれば、スケッチの作成が成功したことが確認できる。<br>
 
 ### 3.2 プロジェクトの構成(フォルダ・ファイルの役割)
 例) **sketch_sample** という名前でスケッチを作成した場合
