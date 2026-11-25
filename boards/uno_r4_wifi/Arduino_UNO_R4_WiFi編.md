@@ -151,7 +151,7 @@ Arduino IDE のデバッガを使用するため、追加でデバッガの接�
 この節では、シリアル出力によるデバッグを行う。<br>
 今回は「5.3 題材6」のコードをもとに、実行がどこまで進んでいるかをSrial.Println関数で確認する。
 1. 題材6のコードを以下のように書き換える。
-    ```
+    ```c
     #include <Arduino_FreeRTOS.h>    // FreeRTOSを使うために必要
 
     QueueHandle_t blinkQueue;    // キューのハンドルを取得
