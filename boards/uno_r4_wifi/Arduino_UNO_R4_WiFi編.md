@@ -80,7 +80,7 @@ LED を0.5秒ごと点滅させながらボタンを押した回数をカウン�
   1. ボードの D2 と GND (画像の赤枠部分)にジャンパワイヤを配線してボタンを接続する。<br>
   <img src="./images/u2_cording_wiring.png" width=30%><br>
 - **プログラム**<br>
-    ```
+    ```c
     #include <Arduino_FreeRTOS.h>    // FreeRTOSを使うために必要
 
     void LedTask(void *pvParameters);       // LedTask関数の宣言
@@ -171,7 +171,7 @@ LED を0.5秒ごと点滅させながらボタンを押した回数をカウン�
   1. ボードの D2 と GND (画像の赤枠部分)にジャンパワイヤを配線してボタンを接続する。<br>
   <img src="./images/u2_cording_wiring.png" width=30%><br>
 - **プログラム**<br>
-    ```
+    ```c
     #include <Arduino_FreeRTOS.h>    // FreeRTOSを使うために必要
 
     QueueHandle_t blinkQueue;    // キューのハンドルを取得
@@ -183,7 +183,7 @@ LED を0.5秒ごと点滅させながらボタンを押した回数をカウン�
     const int digitalOutPin = LED_BUILTIN;
 
     void setup() {
-      buttonQueue = xQueueCreate(1, sizeof(int));   // int型が1つ入るキューを作成
+      blinkQueue = xQueueCreate(1, sizeof(int));   // int型が1つ入るキューを作成
   
       pinMode(digitalInPin, INPUT_PULLUP);    // D2を入力モード(内部プルアップ抵抗有効)に設定
       pinMode(digitalOutPin, OUTPUT);         // LED_BUILTINを出力モードに設定
@@ -243,7 +243,7 @@ LED を0.5秒ごと点滅させながらボタンを押した回数をカウン�
       int led_state = LOW;
 
       while(1){
-        xQueueReceive(buttonQueue, &blink_mode, 0);   // 送られた点滅間隔を受け取る
+        xQueueReceive(blinkQueue, &blink_mode, 0);   // 送られた点滅間隔を受け取る
     
         if (blink_mode == 0){     // 受け取った点滅間隔から待ち時間を定める
           led_time = 500;
