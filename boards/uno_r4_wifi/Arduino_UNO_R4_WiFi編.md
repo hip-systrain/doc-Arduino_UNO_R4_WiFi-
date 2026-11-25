@@ -230,7 +230,7 @@ LED を0.5秒ごと点滅させながらボタンを押した回数をカウン�
           }
         }
 
-        xQueueSend(buttonQueue, &blink_mode, 0);    // 点滅間隔を送る
+        xQueueSend(blinkQueue, &blink_mode, 0);    // 点滅間隔を送る
         last_button_state = button_state;           // 今回のボタンの状態を保持
 
         vTaskDelay(pdMS_TO_TICKS(10));              // タスクを待ち状態にする
