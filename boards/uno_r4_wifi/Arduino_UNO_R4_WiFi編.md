@@ -103,11 +103,11 @@ https://github.com/arduino/ArduinoCore-renesas/blob/main/cores/arduino/FspTimer.
 - Arduino公式 GitHub FspTimer.h（クラス定義）<br>
 https://github.com/arduino/ArduinoCore-renesas/blob/main/cores/arduino/FspTimer.h
 
-- Arduino UNO R4 WiFi のデバッグ<br>
-https://docs.arduino.cc/tutorials/uno-r4-wifi/debugger/
-
 - FreeRTOS公式リファレンス<br>
 https://www.freertos.org/Documentation/00-Overview
+
+- Arduino UNO R4 WiFi のデバッグ<br>
+https://docs.arduino.cc/tutorials/uno-r4-wifi/debugger/
 
 <!-- ボード独自の追加章がある場合は、ここから「## 9. 〜」として追加する -->
 
