@@ -78,19 +78,19 @@
       delay(1000);              // 1秒間(1000ms)待つ
     }
     ```
-    <img src="./images/u1_serial_terminal_01.png" width=60%>
+    <img src="./images/u1_serial_terminal_01.png" width=60%><br>
 
 1. 「書き込み」 を押下する。<br>
-<img src="./images/u1_serial_terminal_02.png" width=60%>
+    <img src="./images/u1_serial_terminal_02.png" width=60%><br>
 
 1. シリアルモニタのアイコンを押下する。<br>
-<img src="./images/u1_serial_terminal_03.png" width=60%>
+    <img src="./images/u1_serial_terminal_03.png" width=60%><br>
 
 1. シリアルモニタのシリアル通信速度を **9600baud** に変更する。<br>
-<img src="./images/u1_serial_terminal_04.png" width=60%>
+    <img src="./images/u1_serial_terminal_04.png" width=60%><br>
 
 1. シリアルモニタの出力を確認する。<br>
-<img src="./images/u1_serial_terminal_05.png" width=60%>
+    <img src="./images/u1_serial_terminal_05.png" width=60%><br>
     > 確認: 1秒ごとに **test** と出力されればシリアルモニタの動作が期待通りであることが確認できる。<br>
 
 ## 3. プロジェクト作成
