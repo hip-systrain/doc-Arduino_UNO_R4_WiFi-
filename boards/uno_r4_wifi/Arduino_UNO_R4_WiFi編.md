@@ -42,13 +42,14 @@
 ---
 
 ## 1. 開発環境構築
+この章では、開発環境の構築手順について記述する。
 
 ### 1.1 ツールのインストール
-この節では、Arduino IDE をインストールする。<br>
+この節では、Arduino IDE のインストール手順を記述する。<br>
 
 1. Arduino IDE のダウンロードページ (https://www.arduino.cc/en/software/) へアクセスする。<br>
 
-1. 「Windows Win 10 and newer, 64bits」 を選択する。<br>
+1. 「Windows Win 10 or newer (64-bit)」 を選択する。<br>
     <img src="./images/u1_tool_install_01.png" width=40%><br>
 
 1. 「DOWNLOAD」 を押下する。<br>
@@ -68,9 +69,10 @@
 
 1. 「完了」 を押下する。<br>
     <img src="./images/u1_tool_install_07.png" width=40%><br>
+    > 確認:画像の画面が表示されれば、Arduino IDE のインストールが完了したことが確認できる。<br>
 
 ### 1.2 ドライバのインストール
-この節では、デバイスドライバをインストールする。<br>
+この節では、デバイスドライバのインストール手順を記述する。<br>
 
 1. Arduino IDE を起動する。<br>
 
@@ -78,19 +80,19 @@
     <img src="./images/u1_driver_install_01.png" width=30%><br>
     > 注意:画像の画面が表示された場合、この操作を行う。<br>
 
-1. 「インストール」 を押下する。<br>
+1. 「インストール」 を押下して、 「Adafruit Industries LLC ポート (発行元: Adafruit Industries )」 をインストールする。<br>
     <img src="./images/u1_driver_install_02.png" width=40%><br>
     > 注意:画像の画面が表示された場合、この操作を行う。<br>
 
-1. 「インストール」 を押下する。<br>
+1. 「インストール」 を押下して、 「Arduino USB Driver (発行元: Arduino srl )」 をインストールする。<br>
     <img src="./images/u1_driver_install_03.png" width=40%><br>
     > 注意:画像の画面が表示された場合、この操作を行う。<br>
 
-1. 「インストール」 を押下する。<br>
+1. 「インストール」 を押下して、 「Arduino USB Driver (発行元: Arduino SA )」 をインストールする。<br>
     <img src="./images/u1_driver_install_04.png" width=40%><br>
     > 注意:画像の画面が表示された場合、この操作を行う。<br>
 
-1. 「インストール」 を押下する。<br>
+1. 「インストール」 を押下して、 「Genuino USB Driver (発行元: Arduino LLC )」 をインストールする。<br>
     <img src="./images/u1_driver_install_05.png" width=40%><br>
     > 注意:画像の画面が表示された場合、この操作を行う。<br>
 
@@ -108,6 +110,7 @@
 
 1. 「 OK 」 を押下する。<br>
     <img src="./images/u1_driver_install_10.png" width=60%><br>
+    > 確認:Arduino IDE のメニューが日本語で表示されれば、Arduino IDE の初期設定が完了したことが確認できる。<br>
 
 1. ボードのアイコンを押下する。<br>
     <img src="./images/u1_driver_install_11.png" width=60%><br>
@@ -118,12 +121,10 @@
 1. フィルタで表示された 「Arduino UNO R4 Boards」 の下にある 「インストール」 を押下する。<br>
     <img src="./images/u1_driver_install_13.png" width=60%><br>
 
-1. 「インストール」 を押下する。<br>
+1. 「インストール」 を押下して、 「Arduino ユニバーサル シリアル バス デバイス (発行元: Arduino SA )」 をインストールする。<br>
     <img src="./images/u1_driver_install_14.png" width=40%><br>
     > 注意:画像の画面が表示された場合、この操作を行う。<br>
-
-1. デバイスドライバのインストールが完了すると　**Platform arduino:renesas_uno@1.6.0 installed** と出力される。<br>
-    <img src="./images/u1_driver_install_15.png" width=60%><br>
+    > 確認:「Platform arduino:renesas_uno@1.6.0 installed」と表示されれば、デバイスドライバのインストールが完了したことが確認できる。<br>
 
 ### 1.3 インストールできたことの確認
 この節では、ツールとデバイスドライバがインストールできたことの確認をする。<br>
@@ -159,48 +160,8 @@
 ## 2. シリアルターミナルの使い方
 
 ### 2.1 使用するツールと接続方法
-
-| ツール | 接続方法 |
-|---|---|
-| Arduino IDE | 接続なし。ツール上のシリアルモニタを使用。 |
-
 ### 2.2 通信設定(ポート、ボーレートなど)
-
-| ポート | ボーレート |
-|---|---|
-| ボードを接続したCOM | ボードに設定したシリアル通信速度 |
-
 ### 2.3 動作確認
-
-1. 開発 PC の USB ポートに Arduino UNO R4 WiFi を接続する。<br>
-
-1. Arduino IDE を起動する。<br>
-
-1. スケッチを次のコードに書き換える。<br>
-    ```c
-    void setup() {
-      Serial.begin(9600); // シリアル通信速度を9600bpsに設定
-    }
-
-    void loop() {
-      Serial.print("test\r\n"); // "test"という文字列をシリアル出力する
-      delay(1000);              // 1秒間(1000ms)待つ
-    }
-    ```
-    <img src="./images/u1_serial_terminal_01.png" width=60%><br>
-
-1. 「書き込み」 を押下する。<br>
-    <img src="./images/u1_serial_terminal_02.png" width=60%><br>
-
-1. シリアルモニタのアイコンを押下する。<br>
-    <img src="./images/u1_serial_terminal_03.png" width=60%><br>
-
-1. シリアルモニタのシリアル通信速度を **9600baud** に変更する。<br>
-    <img src="./images/u1_serial_terminal_04.png" width=60%><br>
-
-1. シリアルモニタの出力を確認する。<br>
-    <img src="./images/u1_serial_terminal_05.png" width=60%><br>
-    > 確認: 1秒ごとに **test** と出力されればシリアルモニタの動作が期待通りであることが確認できる。<br>
 
 ## 3. プロジェクト作成
 
