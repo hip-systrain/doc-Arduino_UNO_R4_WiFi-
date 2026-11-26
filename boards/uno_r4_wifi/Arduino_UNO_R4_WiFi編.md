@@ -71,7 +71,7 @@
 この章では、 FreeRTOS の導入方法、および FreeRTOS を用いた題材について記述する。<br>
 
 ### 5.1 FreeRTOSの導入・設定
-UNO R4 WiFiには FreeRTOS がすでに入っているため、追加でインストールは不要とする。
+Arduino UNO R4 Boards のボードパッケージには FreeRTOS がすでに入っているため、追加でインストールは不要とする。
 
 ### 5.2 題材5:複数タスク
 - **作るもの**<br>
@@ -79,7 +79,14 @@ LED を 0.5 秒ごと点滅させながらボタンを押した回数をカウ�
 - **配線**<br>
   1. ボードの D2 と GND (画像の赤枠部分)にジャンパワイヤを配線してボタンを接続する。<br>
   <img src="./images/u2_cording_wiring.png" width=30%><br>
+
 - **プログラム**<br>
+  1. 開発 PC の USB ポートに Arduino UNO R4 WiFi を接続する。<br>
+
+  1. Arduino IDE を起動する。<br>
+
+  1. スケッチを **プログラム** のコードに書き換える。<br>
+
     ```c
     #include <Arduino_FreeRTOS.h>    // FreeRTOSを使うために必要
 
@@ -147,12 +154,6 @@ LED を 0.5 秒ごと点滅させながらボタンを押した回数をカウ�
     }
     ```
 - **ビルドと書込み**<br>
-  1. 開発 PC の USB ポートに Arduino UNO R4 WiFi を接続する。<br>
-
-  1. Arduino IDE を起動する。<br>
-
-  1. スケッチを **プログラム** のコードに書き換える。<br>
-
   1. 「検証」 を押下する。<br>
   <img src="./images/u2_cording_build.png" width=30%><br>
       > 確認: Arduino IDE の右下に「コンパイル完了」と表示されれば検証が成功したことが確認できる。<br>
@@ -164,7 +165,7 @@ LED を 0.5 秒ごと点滅させながらボタンを押した回数をカウ�
   1. Arduino UNO R4 WiFi の LED (画像の赤枠)を確認する。<br>
   <img src="./images/u2_cording_led.png" width=30%><br>
   1. シリアルモニタを確認する。<br>
-  <img src="./images/u2_cording_serial.png" width=30%><br>
+  <img src="./images/u2_cording_serial.png" width=60%><br>
   1. ボードに接続したボタンを押す。<br>
       > 確認: LED が 0.5 秒ごとに点滅しながら、ボタンを押した回数がシリアルモニタに表示されることが確認できる。<br>
 
@@ -174,7 +175,14 @@ LED を 0.5 秒ごと点滅させながらボタンを押した回数をカウ�
 - **配線**<br>
   1. ボードの D2 と GND (画像の赤枠部分)にジャンパワイヤを配線してボタンを接続する。<br>
   <img src="./images/u2_cording_wiring.png" width=30%><br>
+
 - **プログラム**<br>
+  1. 開発 PC の USB ポートに Arduino UNO R4 WiFi を接続する。<br>
+
+  1. Arduino IDE を起動する。<br>
+
+  1. スケッチを **プログラム** のコードに書き換える。<br>
+
     ```c
     #include <Arduino_FreeRTOS.h>    // FreeRTOSを使うために必要
 
@@ -267,12 +275,6 @@ LED を 0.5 秒ごと点滅させながらボタンを押した回数をカウ�
     }
     ```
 - **ビルドと書込み**<br>
-  1. 開発 PC の USB ポートに Arduino UNO R4 WiFi を接続する。<br>
-
-  1. Arduino IDE を起動する。<br>
-
-  1. スケッチを **プログラム** のコードに書き換える。<br>
-
   1. 「検証」 を押下する。<br>
   <img src="./images/u2_cording_build.png" width=30%><br>
       > 確認: Arduino IDE の右下に「コンパイル完了」と表示されれば検証が成功したことが確認できる。<br>
