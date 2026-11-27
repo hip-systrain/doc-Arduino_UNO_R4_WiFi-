@@ -86,9 +86,11 @@
 
 1. 「検証」 を押下する。<br>
     <img src="./images/u1_serial_terminal_02.png" width=60%><br>
+    > 確認: Arduino IDE の右下に「コンパイル完了」と表示されれば検証が成功したことが確認できる。<br>
 
 1. 「書き込み」 を押下する。<br>
     <img src="./images/u1_serial_terminal_03.png" width=60%><br>
+    > 確認: Arduino IDE の右下に「書き込み完了」と表示されれば書き込みが成功したことが確認できる。<br>
 
 1. シリアルモニタのアイコンを押下する。<br>
     <img src="./images/u1_serial_terminal_04.png" width=60%><br>
