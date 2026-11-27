@@ -76,25 +76,20 @@
 
 1. Arduino IDE を起動する。<br>
 
-1. 「許可」 を押下する。<br>
-    <img src="./images/u1_driver_install_01.png" width=30%><br>
-    > 注意:画像の画面が表示された場合、この操作を行う。<br>
+1. アクセス許可の確認画面が表示された場合、「許可」 を押下してアクセスを許可する。<br>
+    <img src="./images/u1_driver_install_01.png" width=40%><br>
 
-1. 「インストール」 を押下して、 「Adafruit Industries LLC ポート (発行元: Adafruit Industries )」 をインストールする。<br>
-    <img src="./images/u1_driver_install_02.png" width=40%><br>
-    > 注意:画像の画面が表示された場合、この操作を行う。<br>
+1. Adafruit Industries LLC ポート (発行元: Adafruit Industries ) のインストール確認画面が表示された場合、「インストール」 を押下してインストールする。<br>
+    <img src="./images/u1_driver_install_02.png" width=60%><br>
 
-1. 「インストール」 を押下して、 「Arduino USB Driver (発行元: Arduino srl )」 をインストールする。<br>
-    <img src="./images/u1_driver_install_03.png" width=40%><br>
-    > 注意:画像の画面が表示された場合、この操作を行う。<br>
+1. Arduino USB Driver (発行元: Arduino srl ) のインストール確認画面が表示された場合、「インストール」 を押下してインストールする。<br>
+    <img src="./images/u1_driver_install_03.png" width=60%><br>
 
-1. 「インストール」 を押下して、 「Arduino USB Driver (発行元: Arduino SA )」 をインストールする。<br>
-    <img src="./images/u1_driver_install_04.png" width=40%><br>
-    > 注意:画像の画面が表示された場合、この操作を行う。<br>
+1. Arduino USB Driver (発行元: Arduino SA ) のインストール確認画面が表示された場合、「インストール」 を押下してインストールする。<br>
+    <img src="./images/u1_driver_install_04.png" width=60%><br>
 
-1. 「インストール」 を押下して、 「Genuino USB Driver (発行元: Arduino LLC )」 をインストールする。<br>
-    <img src="./images/u1_driver_install_05.png" width=40%><br>
-    > 注意:画像の画面が表示された場合、この操作を行う。<br>
+1. Genuino USB Driver (発行元: Arduino LLC ) のインストール確認画面が表示された場合、「インストール」 を押下してインストールする。<br>
+    <img src="./images/u1_driver_install_05.png" width=60%><br>
 
 1. 「 File 」 を押下する。<br>
     <img src="./images/u1_driver_install_06.png" width=60%><br>
@@ -121,10 +116,9 @@
 1. フィルタで表示された 「Arduino UNO R4 Boards」 の下にある 「インストール」 を押下する。<br>
     <img src="./images/u1_driver_install_13.png" width=60%><br>
 
-1. 「インストール」 を押下して、 「Arduino ユニバーサル シリアル バス デバイス (発行元: Arduino SA )」 をインストールする。<br>
-    <img src="./images/u1_driver_install_14.png" width=40%><br>
-    > 注意:画像の画面が表示された場合、この操作を行う。<br>
-    > 確認:「Platform arduino:renesas_uno@1.6.0 installed」と表示されれば、デバイスドライバのインストールが完了したことが確認できる。<br>
+1. Arduino ユニバーサル シリアル バス デバイス (発行元: Arduino SA ) のインストール確認画面が表示された場合、「インストール」 を押下してインストールする。<br>
+    <img src="./images/u1_driver_install_14.png" width=60%><br>
+    > 確認:Arduino IDE の出力に 「Platform arduino:renesas_uno@1.6.0 installed」 と表示されれば、デバイスドライバのインストールが完了したことが確認できる。<br>
 
 ### 1.3 インストールできたことの確認
 この節では、ツールとデバイスドライバがインストールできたことの確認をする。<br>
@@ -154,7 +148,7 @@
     <img src="./images/u1_install_check_07.png" width=60%><br>
 
 1. ボード情報を確認する。<br>
-    <img src="./images/u1_install_check_08.png" width=20%><br>
+    <img src="./images/u1_install_check_08.png" width=40%><br>
     > 確認:「Arduino UNO R4 WiFi」 のボード情報が表示できていれば、デバイスドライバのインストールが成功したことが確認できる。<br>
 
 ## 2. シリアルターミナルの使い方
